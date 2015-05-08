@@ -1,0 +1,214 @@
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="vi" xml:lang="vi">
+	<head>
+		<title>PNC Bot</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		<meta http-equiv="content-script-type" content="text/javascript">
+		<meta http-equiv="content-style-type" content="text/css">
+		<meta name="language" content="vi">
+		<meta name="description" content="">
+		<meta name="title" content="Robot PNC tạo">
+		<script src="../CODE/jquery.min.js" type="text/javascript"></script>
+		<style>
+		body{background:aliceblue}
+		#main{width:500px;margin:0 auto}
+		#chatC{position:fixed;bottom:20px}
+		#chatV{width:490px;padding:10px 5px;border:1px solid #DDD;box-shadow:inset 0 0 3px 0 #DDD}
+		#chatV:hover{border:1px solid #00B0F0;box-shadow:inset 0 0 3px #00B0F0}
+		div[l],div[r]{background:rgb(218,237,255);padding:5px 10px;border:1px solid #A8D9FF;border-radius:10px;float:left;clear:both;margin-bottom:15px;max-width:370px;text-align:justify;word-break:break-word}
+		div[r]{float:right;background:rgb(253,255,195);border:1px solid #DBDB3A}
+		#chatD {height:85%;overflow:auto;width:505px;margin-left:-70px;padding:0 70px;box-shadow:inset -7px -8px 9px -5px rgba(204,204,204,.41)}
+		div[l] img{margin:-11px 0 0 -71px;float:left;height:45px}
+		div[l]:before{content:'';display:inline-block;border-color:transparent #A8D9FF;border-width:6px 10px 5px 0;border-style: solid;margin:6px 11px 0 -21px}
+		#main:after{position:fixed;content:'';background:aliceblue;width:22px;height:100%;display:block;margin-left:556px;top:0}
+		div[r] img{float:right;height: 45px;margin:-11px -62px 0 0}
+		div[r]:after {content:'';display:inline-block;border-width:6px 0 5px 10px;border-color:transparent #DBDB3A;border-style: solid;margin:7px -30px -16px 11px}
+		red{color:red}
+		green{color:green}
+		blue{color:blue}
+		r{float:right}
+		#PNC-g-Form,#basket{display:none}
+		</style>
+		<script>
+			$(function(){
+				var mode = 'macdinh';
+				//Biến Trò chơi Tính nhẫm
+				var dtA = new Array;
+				var dtB = new Array;
+				var dtkey = new Array;
+				var dttime = 0,dtLim = 0;
+				//Dữ liệu Danh ngôn
+				var danhngon = ['','Bạn hãy yêu tự do hơn tất cả và làm điều thiện ở bất cứ nơi nào có thể<br><r>V.Beethoven</r>','Nhà ngoại giao là người đàn ông luôn nhớ ngày sinh nhật của phụ nữ nhưng chẳng bao giờ nhớ tuổi của nàng<br><r>Robert Frost</r>','Đạo làm quân tử có 3 điều đúng:<br>+ Mạnh dạn khi làm điều nghĩa<br>+ Nhũn nhặn khi nghe lời can gián<br>+ Và cẩn thận đối với việc sửa mình<br><r>Khổng Tử</r>','Đừng để một ai chẳng nhận được gì khi rời chỗ bạn cho dù bạn biết rằng không bao giờ gặp lại<br><r>Ngạn ngữ Pháp</r>','Danh dự là sự hòa hợp tự nhiên giữa việc tôn trọng mọi người và tự tôn trọng chính mình<br><r>W. Shakespear</r>','Lý trí có thể mách bảo ta điều phải tránh, còn con tim sẽ chỉ cho ta biết điều phải làm<br><r>Joubert</r>','Cái gì xuất phát từ trái tim sẽ đi đến trái tim<br><r>Piêt</r>','Không có ngày mai nào lại không kết thúc, không có sự đau khổ nào lại không có lối ra.<br><r>Rsoutheell</r>','Nếu như trí tuệ là cái vốn quí nhất và hữu ích nhất thì sự hài hước là tính dễ chịu nhất của con người.<br><r>Swift</r>','Hãy làm tròn mỗi công việc của đời mình như thể đó là công việc cuối cùng<br><r>Marc aurele</r>','Tôi thường hối tiếc vì mình đã mở mồm chứ không bao giờ... vì mình đã im lặng<br><r>Philippe de Commynes</r>','Cách khéo nhất để làm vừa lòng ai đó là xin họ lời khuyên<br><r>Odove Primex</r>','Nếu có hai người cùng sống với nhau hòa thuận nên tin trong đó ít nhất một người tốt.<br><r>Ngạn ngữ Angiêri</r>','Cuộc đời là bọt nước. Chỉ có hai điều như đá tảng: tử tế khi người khác lâm hoạn nạn và can đảm trong hoạn nạn của chính mình<br><r>A. Gordon</r>','Đừng mua thứ hữu ích mà hãy mua thứ cần thiết<br><r>Caton Censeur</r>','Người đáng nói mà mình không nói là mất người, Người không đáng nói mà mình nói là mất lời.<br><r>Khổng Tử</r>','Người xin bố thí đỏ mặt một lần, kẻ từ chối không bố thí đỏ mặt hai lần<br><r>Ngạn ngữ Thổ nhĩ Kỳ</r>','Hoài nghi chính mình là điều phải làm đầu tiên của người quân tử.<br><r>P. Nicole</r>','Khi đã biết tha thứ, bạn sẽ mỉm cười nhiều hơn, biết cảm nhận sâu sắc và dễ thông cảm với người khác<br><r>Bishop</r>','Đừng ném lời cho gió, nếu không hay biết gió thổi về đâu<br><r>N. Ghenin</t>','Nếu sự khiêm nhường của bạn khiến mọi người để ý thì hẳn có chút đó chẳng bình thường.<br><r>M. Ghenin.</r>','Người không biết tươi cười sẽ không biết cách mở ra những cánh cửa.<br><r>Ngạn Ngữ Trung Quốc</r>','Đừng để đến ngày mai những việc gì anh có thể làm hôm nay<br><r>Lord Chesterfield</r>','Một người chưa biết nói những lời nói dối đẹp đẽ thi người đó không bao giờ biết đến thế giới chân thực.<br><r>A. France.</r>','Cho quí hơn nhận song cái giếng sâu nhất cũng cạn nếu không được uống nước đó sao?<br><r>H.A. Kromer</r>','Tôi chưa bao giờ gặp một người nào mà tôi không tìm thấy nơi họ một cái gì đáng cho tôi học hỏi<br><r>Afred de Vigny</r>','Người có một tinh thần sâu sắc cần phải tự đào tạo một cái học để khám phá những tế nhị của lòng người<br><r>Vauvenargues</r>','Bạn nên ghi nằm lòng rằng tất cả trẻ con dù ở độ tuổi nào cũng vậy, đều bịt tai trước những lời ta khuyên răn dạy bảo, chúng sẽ mở mắt thật to nếu người ta làm gương cho chúng thấy<br><r>The Table</r>','Cử chỉ đẹp là đức hạnh được dịch ra một thứ ngôn ngữ dễ hiểu<br><r>Francis Bacon</r>','Khi con trai bạn còn nhỏ, bạn hãy làm ông chủ của nó. Nhưng khi nó lớn lên rồi, bạn hãy làm người anh của nó<br><r>Ngạn ngữ Arập</r>','Thiếu thận trọng gây nhiều tai hại hơn thiếu hiểu biết<br><r>Franklin</r>','Hãy suy nghĩ tất cả những gì bạn nói nhưng đừng nói tất cả những gì bạn nghĩ<br><r>Delarme</r>','Hãy kiên nhẫn làm bổn phận của mình và giữ thinh lặng, đó là câu trả lời tốt nhất cho sự vu khống<br><r>G. Washington</r>','Con ong được ca tụng vì nó làm việc không phải cho chính mình nhưng cho tất cả<br><r>Saint J.Chrysistome</r>','Đừng bao giờ khiêm tốn với kẻ kiêu căng, cũng đừng bao giờ kiêu căng với người khiêm tốn<br><r>Jeffecson</r>','Sự ngắn gọn là linh hồn của trí khốn sắc sảo<br><r>Shakespear</r>','Không nên đánh giá một người dựa vào những cái anh ta không biết mà nên dựa vào những cái anh ta hiểu biết<br><r>Vauvenargues</r>','Đầu hàng cám rỗ là hành động của thú tính, chiến thắng nó mới là con người<br><r>Waterstone</r>','Hãy hiền dịu khoan dung với hết mọi người trừ bản thân mình<br><r>Joubert</r>','Nếu ai nói xấu bạn mà nói đúng thì hãy sửa mình đi. Nếu họ nói bậy thì bạn hãy cười thôi<br><r>Epictete</r>','Khi ta tự trách mình thì dường như không ai có quyền trách ta Kẻ bắt chước cái xấu luôn vượt xa cái gương xấu ấy. Trái lại, kẻ bắt chước cái tốt luôn thua kém cái gương ấy<br><r>Guicciardini</r>','Ai không biết nghe, tất không biết nói chuyện<br><r>Giarardin</r>','Anh có thể lừa vài người trong mọi lúc, anh cũng có thể lừa mọi người trong vài lúc, nhưng anh không thể lừa mọi người trong mọi lúc<br><r>A.Lincoln</r>','Phải biết mở cửa lòng mình trước mới hy vọng mở được lòng người khác<br><r>Pasquier Quesnel</r>','Điều gì anh muốn người ta làm cho anh, anh hãy làm cho người ta<br><r>Kinh Thánh</r>','Đôi khi phải nhượng bộ mà thừa nhận rằng củ cải là củ lê<br><r>Ngạn ngữ Đức</r>','Muốn uốn cây cong cho thẳng lại, ta uốn cong nó theo chiều ngược lại<br><r>Montaigne</r>','Không có gì nguy hiểm bằng lời khuyên tốt đi kèm với gương xấu<br><r>De Scudery</r>','Khuyên răn thay cho giận dữ, mỉm cười thay cho khinh bỉ<br><r>Epiquya</r>','Bao giờ cũng nên có nhiều trí tuệ hơn lòng tự ái<br><r>Epiquya</r>','Không bao giờ làm phiền người khác về những việc mình có thể làm được<br><r>Jeffecson</r>','Yêu mọi người, tin vài người và đừng xúc phạm đến ai<br><r>Shakespear</r>','Những người mạnh không dùng lời lẽ lăng mạ. Họ mỉm cười.<br><r>L.Leonop</r>','Ngoại giao là khoa học của sự nhượng bộ<br><r>A.Musset</r>','Một trong những ưu điểm lớn nhất của diễn giả là chẳng những nói những điều cần nói mà còn biết không nói những gì không cần thiết<br><r>Cicero</r>','Nghệ thuật sống với nhau chính là nghệ thuật giữ khoảng cách<br><r>O. Wide</r>','Phép lịch sự là quy tắc chi phối các mối quan hệ, đó là nghệ thuật của lòng vị tha<br><r>Erasme</r>','Bạn bè tốt thanh toán tiền của họ một cách nhanh chóng<br><r>Tục ngữ Trung Quốc</r>','Đi vòng mà đến đích còn hơn đi thẳng mà ngã đau<br><r>Tục ngữ Anh</r>','Đừng bao giờ bắt buộc người khác làm những gì mà họ không muốn<br><r>Tục ngữ Anh</r>','Đừng bao giờ ném bùn vào người khác. Bạn có thể ném trật và tay bạn chắc chắn bị bẩn<br><r>Joseph Parker</r>','Đôi tai là lối vào của trái tim<br><r>Voltaire</r>','Hãy vội nghe và chậm trả lời<br><r>Ben Sira</r>','Hãy nói nếu bạn có những lời lẽ mạnh hơn, nếu không, hãy im lặng<br><r>Euripide</r>','Làm chuyện gì mà có điều chưa thỏa mãn thì hãy tự xét lại thân mình xem làm như thế đã phải chưa<br><r>Mạnh Tử</r>','Làm người nên tự lập lấy thân, tự trọng, không nên giẫm lên gót người khác, nói theo miệng người<br><r>Lục Cửu Uyên</r>','Ở nhiều người, lời nói đi trước tư tưởng. Họ chỉ biết những gì họ suy nghĩ sau khi đã nghe những gì mình nói<br><r>Gustave Lebon</r>','Phải biết chăm chú lắng nghe và khuyến khích người khác nói về họ<br><r>D. Canergie</r>','Phải kính trọng con người! Đừng thương hại nó<br><r>M.Gorki</r>','Tôi không biết chìa khóa của thành công là gì, nhưng tôi biết chìa khóa của thất bại là cố gắng làm vừa lòng mọi người<br><r>Bill Cosby</r>','Điều oái oăm là, nếu bạn không muốn liều mất cái gì thì bạn còn mất nhiều hơn<br><r>Erica Jong</r>','Không một người nào đã từng cười hết mình và cười xả láng lại đồng thời là người xấu xa.<br><r>Thomas Carlyle</r>','Nếu bạn tức giận thì hãy đếm 10 trước khi nói, còn nếu bạn nổi cơn thịnh nộ thì hãy đếm đến 100<br><r>Jeffecson</r>','Thói quen làm những gì tốt đẹp nhất trần thế trở nên tầm thường.<br><r>Bade Rvew</r>','Không ai tán thưởng một cây đang trổ hoa<br><r>Harold Philips</r>','Hãy tin một nửa những gì anh thấy tận mắt và đừng tin những gì anh nghe được<br><r>D. Crai</r>','Để hiểu nhau, tôi thích anh hoài nghi tôi để rồi có ngày tin cho chắc chắn. Tôi không thích anh vội tin tôi để đi đến hoài nghi<br><r>M.Gorki</r>','Không nên nói tất cả những gì bạn biết, nhưng bao giờ cũng phải biết những gì mà bạn nói<br><r>M. Claudius</r>','Kẻ nào gian dối trong việc nhỏ thì sẽ gian dối trong việc lớn<br><r>Kinh thánh</r>','Đừng đọc gì anh không muốn nhớ và đừng nhớ gì anh không định dùng<br><r>G. Blecki</r>','Lời nói nào bạn kiềm chế được là nô lệ của bạn, lời nói nào buột miệng thốt ra là kẻ sai khiến bạn<br><r>S. Gaphit</r>','Có 3 điều khó khăn nhất, đó là giữ được một điều bí mật, quên đi một sự xúc phạm và biết dùng thời gian rỗi một cách có ích<br><r>Xilô</r>','Kẻ nào không biết giữ cái nhỏ sẽ mất cái lớn<br><r>Mênanđơ</r>','Tướng giỏi sau khi thắng trận không cần ai khen và cũng không cần ai biết đến công lao<br><r>Tôn tử</r>','Dùng người như dùng gỗ, đừng vì một vài chỗ mục mà bỏ cả cây lớn<br><r>Khổng Tử</r>','Đừng hoãn lại một việc gì về sau, bởi vì về sau bạn cũng không gặp dễ dàng hơn<br><r>Jăngpon</r>','Nếu một người lừa tôi lần đầu, thì sự xấu hổ thuộc về anh ta, nếu lần thứ hai thì cái ô nhục thuộc về tôi<br><r>John Gray</r>','Anh cho những gì anh có là cho rất ít, nhưng khi anh phải hi sinh anh mới cho một cách thực sự<br><r>Gibran</r>','Hỏi một câu, chỉ dốt nát trong chốc lát. Không dám hỏi sẽ dốt nát suốt đời<br><r>DN phương Tây</r>','Nên tập thói quen tìm sự thật trong các việc nhỏ nếu không sẽ bị lừa trong các việc lớn<br><r>Vontaire</r>','Những kẻ tầm thường hay lên án những gì vượt quá tầm hiểu biết của họ<br><r>La Rochefoucauld</r>','Nhiều người cho rằng sự tập trung nghĩa là nói có với những thứ mà họ phải dồn sức vào. Nhưng điều đó không hoàn toàn như vậy. Điều đó có nghĩa là phải nói không với hàng trăm ý tưởng tốt khác. Bạn phải lựa chọn chúng một cách cẩn thận. Tôi thực sự tự hào về những việc mình không làm không kém gì những việc mình đã làm. Vì vậy, sáng tạo là nói không với 1.000 thứ.<br><r>Steve Jobs.</r>','Nếu bạn muốn sống một cuộc đời theo cách sáng tạo, như một nghệ sỹ, bạn đừng nhìn lại quá khứ quá nhiều. Bạn phải sẵn lòng vứt bỏ tất cả những gì bạn đã làm, những kiểu con người mà bạn đã từng thể hiện.<br><r>Steve Jobs.</r>','Sự sáng tạo giúp phân biệt một nhà lãnh đạo với một người tùy tùng<br><r>Steve Jobs','Khi sự dối trá đủ lớn và được lập đi lập lại đủ nhiều thì nó sẽ trở thành sự thật<br><r>Paul Joseph Goebbels</r>','Giá trị của giáo dục đại học không phải ở việc học nhiều sự kiện, mà là luyện cho trí óc suy nghĩ<br><r>Albert Einstein</r>','Người đọc quá nhiều và dùng tới bộ óc quá ít sẽ rơi vào thói quen suy nghĩ lười biếng<br><r>Albert Einstein</r>','Tự do là ung dung trong ràng buộc<br>Hạnh phúc là tự tại giữa khổ đau<br><r>Thơ thiền</r>','Nếu muốn đi thật nhanh thì hãy đi một mình. Nếu muốn đi thật xa thì hãy đi cùng nhau.<br><r>Warren Buffett</r>','Người bi quan luôn nhìn thấy khó khăn trong từng cơ hội. Người lạc quan luôn nhìn thấy cơ hội trong từng khó khăn<br><r>Sir Winston Churchill</r>','Chẳng thà mình không nói, để người ta tưởng mình ngu. Còn hơn mở miệng ra để người ta không còn nghi ngờ gì nữa. <br><r>Mark Twain</r>','Khiêm tốn bao nhiêu cũng chưa đủ, tự kiêu một chút cũng là nhiều.<br><r>Karl Marx</r>'];
+				$('#chatV').select();
+				//Lời chào theo thời gian
+				var cTime = new Date;
+				cTime = cTime.getHours();
+				if (cTime>=0&&cTime<4){
+					$('#chatD').append('<div l><img src="file:///D:/PICTURE/OBJECT/Emo/Blue/64%20(14).png">Chào sếp! Sếp còn thức à? Em có thể giúp gì được cho sếp?<br>Gõ <b><red>/giup</red></b> để được hướng dẫn</div>').hide().fadeIn(400);
+				}
+				else if (cTime>=4&&cTime<7){
+					$('#chatD').append('<div l><img src="file:///D:/PICTURE/OBJECT/Emo/Blue/64%20(14).png">Woa! Sếp dậy sớm quá ta! Em có thể giúp gì được cho sếp?<br>Gõ <b><red>/giup</red></b> để được hướng dẫn</div>').hide().fadeIn(400);
+				}
+				else if (cTime>=7&&cTime<10){
+					$('#chatD').append('<div l><img src="file:///D:/PICTURE/OBJECT/Emo/Blue/64%20(14).png">Sáng trong lành thưa sếp! Em có thể giúp gì được cho sếp?<br>Gõ <b><red>/giup</red></b> để được hướng dẫn</div>').hide().fadeIn(400);
+				}
+				else if (cTime>=10&&cTime<13){
+					$('#chatD').append('<div l><img src="file:///D:/PICTURE/OBJECT/Emo/Blue/64%20(14).png">Trưa mát mẻ thưa sếp! Em có thể giúp gì được cho sếp đây?<br>Gõ <b><red>/giup</red></b> để được hướng dẫn</div>').hide().fadeIn(400);
+				}
+				else if (cTime>=13&&cTime<17){
+					$('#chatD').append('<div l><img src="file:///D:/PICTURE/OBJECT/Emo/Blue/64%20(14).png">Chiều vui vẻ nha sếp! Em có thể giúp gì được cho sếp?<br>Gõ <b><red>/giup</red></b> để được hướng dẫn</div>').hide().fadeIn(400);
+				}
+				else if (cTime>=17&&cTime<21){
+					$('#chatD').append('<div l><img src="file:///D:/PICTURE/OBJECT/Emo/Blue/64%20(14).png">Tối ấm áp nha sếp! Em có thể giúp gì được cho sếp?<br>Gõ <b><red>/giup</red></b> để được hướng dẫn</div>').hide().fadeIn(400);
+				}
+				else if (cTime>=21&&cTime<=23){
+					$('#chatD').append('<div l><img src="file:///D:/PICTURE/OBJECT/Emo/Blue/64%20(14).png">Chào sếp! Sếp chưa ngủ à? Em có thể giúp gì được cho sếp?<br>Gõ <b><red>/giup</red></b> để được hướng dẫn</div>').hide().fadeIn(400);
+				}
+				else{
+					$('#chatD').append('<div l><img src="file:///D:/PICTURE/OBJECT/Emo/Blue/64%20(14).png">Chào sếp! Em có thể giúp gì được cho sếp?<br>Gõ <b><red>/giup</red></b> để được hướng dẫn</div>').hide().fadeIn(400);
+				}
+				//Chuỗi lệnh sau khi Enter
+				$("#chatV").keydown(function(event){
+					if (event.which == 13 && $('#chatV').val() != ''){
+						var chatV = $('#chatV').val();
+						var chatD ='';
+						//Hướng dẫn lệnh
+						if (chatV=='/giup'){
+							chatV = chatV.replace('/giup','Xin hướng dẫn');
+							chatD = chatD + 'Gõ <red><b>/docso</b></red> để xem hướng dẫn về chức năng đọc số<br>Gõ <blue><b>/danhngon</b></blue> để xem những câu danh ngôn hay<br>Gõ <red><b>/xoa</b></red> để xóa màn hình<br>Gõ <b><blue>/chedo</blue></b> để xem chế độ hiện tại<br>Gõ <b><red>/gopy</red></b> để đóng góp ý kiến<br>Gõ <b><blue>/hocthem</blue></b> để chỉ dạy em thêm<br>Gõ <b><green>/thongtin<green></b> để xem thông tin về em';
+						}
+						else if (chatV=='/docso'){
+							chatV = chatV.replace('/docso','Xin hướng dẫn đọc số');
+							chatD = chatD + 'Gõ <b><red>/docso</red> <blue>(số)</blue></b> để em đọc số cho sếp nghe<br><i>* <blue>(Số)</blue> số nhập vào là các số tự nhiên nguyên dương <red>từ 0 đến 1 triệu tỉ</red> (15 chữ số)</i><br>Vd: <b><green>/docso 1608</green></b> - Kết quả: <b><green>Một ngàn sáu trăm linh tám</green></b><br>Gõ <b><red>/docso</red> <blue>Bật</blue></b> để bật chế độ đọc số<br><i>* Khi đã bật chế độ đọc số thì chỉ cần gõ số vào em sẽ tự đọc cho sếp</i><br>Vd: Khi đã bật chế độ đọc số. Gõ <b><green>1995</green></b> - Kết quả: <b><green>Một ngàn chín trăm chín mươi lăm</green></b><br>Gõ <b><red>/chedo</red> <blue>md</blue></b> để chuyển về chế độ mặc định';
+						}
+						else if (chatV=='/gopy'){
+							chatV = chatV.replace('/gopy','Cho sếp góp ý phát nào');
+							chatD = chatD + 'Gõ <b><red>/gopy</red> <blue>(nội dung góp ý)</blue></b> để góp ý với chủ nhân của em thưa sếp!';
+						}
+						else if (chatV=='/hocthem'){
+							chatV = chatV.replace('/hocthem','Lại sếp chỉ cho vài chiêu này');
+							chatD = chatD + 'Gõ <b><red>/hocthem</red> <blue>(nội dung câu hỏi)</blue>|<green>(nội dung câu trả lời)</b> để truyền dạy thêm kiến thức cho em thưa sếp!';
+						}
+						else if (chatV=='/thongtin'){
+							chatV = chatV.replace('/thongtin','Giới thiệu về em đi');
+							chatD = chatD + 'Em xin tự giới thiệu, em tên đây đủ là <b><i>Phạm Ngọc Cường\'s Robot</i></b>, viết tắt là <b>PNC Bot</b>, gọi tắt là <b>Rô</b>. Em được tạo ra vào ngày <b>22/10/2013</b> bởi chủa nhân của em.<br>Chủ nhân của em là <b>Phạm Ngọc Cường</b> hiện là sinh viên ngành Sư phạm Tin học - Khoa CNTT - Trường Đại học Sư phạm, Tp.Hồ Chí Minh.<br><center>-----------------------------------<br><b>Quá trình phát triển của em</b></center><b>22/10/2013</b>: Được chủ nhân tạo ra, thiết kế giao diện.<br><b>23/10/2013</b>: Tích hợp các lệnh cơ bản, cải tiến giao diện.<br><b>24/10/2013</b>: Tích hợp chức năng đọc số, cải tiến giao diện.<br><b>25/10/2013</b>: Cải tiến chức năng đọc số, tích hợp chức năng danh ngôn, tích hợp chức năng chế độ, tích hợp chức năng xóa màn hình, tích hợp chức năng trợ giúp, cải tiến lệnh điều khiển, cải thiện hiển thị.<br><b>26/10/2013</b>: Tích hợp chức năng lưu lịch sử lệnh, tích hợp chức năng góp ý, tích hợp chức năng học thêm.<br><b>05/11/2013</b>: Tích hợp chức năng chào theo thời gian.';
+						}
+						//Bật/Tắt các chế độ
+						else if (chatV=='/docso Bật'||chatV=='/docso bật'){
+							mode = 'docso';
+							chatV = chatV.replace(/\/docso bật/gi,'Bật chức năng đọc số');
+							chatD = '<green><b>Đã bật chức năng đọc số thưa sếp</b></green>';
+						}
+						else if (chatV=='/chedo md'){
+							mode = 'macdinh';
+							chatV = chatV.replace(/\/chedo md/gi,'Chuyển sang chế độ mặc định');
+							chatD = '<red><b>Đã đặt về chế độ mặc định thưa sếp</b></red>';
+						}
+						else if (chatV=='/chedo'){
+							chatV = chatV.replace('/chedo','Cho xem chế độ hiện tại');
+							chatD = 'Hiện tại đang kích hoạt chế độ <b><blue>' + mode.replace('docso','đọc số').replace('macdinh','mặc định') + '</blue></b> thưa sếp.<br>Gõ <b><red>/chedo</red> <blue>md</blue></b> để chuyển về chế độ mặc định.';
+						}
+						//Nhận góp ý, chỉ dạy
+						else if (chatV.slice(0,5)== '/gopy'){
+							chatV = chatV.replace('/gopy','Góp ý');
+							chatD = '<b><red>Cám ơn sếp đã góp ý! Em sẽ trình ý kiến của sếp lên chủ nhân của em!</red></b>';
+							$('#PNCentry').val('[Góp ý] ' + chatV.replace('Góp ý',''));
+							$('#PNCsubmit').click();
+						}
+						else if (chatV.slice(0,8)== '/hocthem'){
+							chatV = chatV.replace('/hocthem','Học thêm');
+							chatD = '<b><blue>Cám ơn sếp đã chỉ giáo! Em sẽ cố gắng tiếp thu nó!</blue></b>';
+							$('#PNCentry').val('[Học thêm] ' + chatV.replace('Học thêm',''));
+							$('#PNCsubmit').click();
+						}
+						//Danh ngôn
+						else if (chatV=='/danhngon'){
+							chatD = danhngon[Math.floor((Math.random()*danhngon.length)+1)];
+							chatV = chatV.replace('/danhngon','Cho một câu danh ngôn hay nào');
+						}
+						//Ứng dụng đọc số
+						else if (chatV.slice(0,6)== '/docso' || mode == 'docso'){
+							chatV = 'Đọc số ' + chatV.replace('/docso','');
+							var docso = ['không','một','hai','ba','bốn','năm','sáu','bảy','tám','chín'];
+							var docdv = ['','mươi','trăm','ngàn','mươi','trăm','triệu','mươi','trăm','tỉ','mươi','trăm','ngàn','mươi','trăm','triệu','mươi','trăm'];
+							var catso = new Array;
+							var hienso = new Array;
+							var sodoc = String(Number(chatV.replace(/[^0-9]/g,'')));
+							for (var i=0;i<sodoc.length;i++){
+								hienso[i] = sodoc.slice(-1*(i+1)).slice(0,1);
+								catso[i]=docso[hienso[i]];
+							}
+							for (var i = 0;i<sodoc.length;i++){
+								if (i==2 || i==5 || i==8 || i==11 || i==14 || i==17){
+									chatD = ' ' + hienso[i] + chatD;
+								}
+								else{
+									chatD = hienso[i] + chatD;
+								}
+							}
+							chatD = 'Số ' + chatD + ' đọc là ';
+							for (var i=(sodoc.length-1);i>=0;i--){
+								chatD = chatD + ' ' + catso[i] + ' ' + docdv[i];
+							}
+							chatD = chatD.replace(/trăm mươi/g,'trăm').replace(/ngàn trăm/g,'ngàn').replace(/triệu trăm/g,'triệu').replace(/tỉ trăm/g,'tỉ').replace(/tỉ triệu ngàn/g,'tỉ').replace(/triệu ngàn/g,'triệu').replace(/một mươi/g,'mười').replace(/mươi năm/g,'mươi lăm').replace(/mươi một/g,'mươi mốt').replace(/mười năm/g,'mười lăm').replace(/không mươi/g,'linh').replace(/linh không /g,'').replace(/không ngàn/g,'ngàn').replace(/không trăm triệu /g,'').replace(/không trăm ngàn /g,'').replace(/không trăm tỉ/g,'tỉ').replace(/mươi không/g,'mươi').replace(/mười không/g,'mười').replace(/linh mốt/g,'linh một').replace(/linh lăm/g,'linh năm');
+							if (chatD.slice(-12) == ' không trăm '){
+								chatD = chatD.slice(0,chatD.length-12);
+							}
+						}
+						//Trò chơi tính nhẩm
+						else if (chatV.slice(0,9)=='/tinhnham'){
+							dtLim=chatV.replace(/[^0-9]/,'');
+						}
+						else if (mode == 'tinhnham' && chatV == '1'){
+							for (var i=1;i<10;i++){
+								//detoan[i] = 
+							}
+							chatD = 'Bắt đầu!</div><div l><img src="file:///D:/PICTURE/OBJECT/Emo/Blue/64%20(14).png">'+chatD;
+						}
+						//Math.floor((Math.random()*100+1)*Math.pow(-1,Math.floor((Math.random()*2+1))))
+						//Xuất ra màn hình
+						$('#chatD').append('<div r><img src="file:///D:/PICTURE/OBJECT/Emo/Yolks/have%20a%20nice%20day.png">'+chatV+'</div>').append('<div l><img src="file:///D:/PICTURE/OBJECT/Emo/Blue/64%20(14).png">'+chatD+'</div>');
+						$('div[l]:last').hide().fadeIn(400);
+						$('#chatD').scrollTop(999999);
+						//Lưu lịch sử
+						$('#hisCom').prepend('<option value="'+$('#chatV').val()+'"></option>');
+						$('#hisCom option:nth-child(10)+option').remove();
+						//Xóa màn hình
+						if ($('#chatV').val().slice(0,4)== '/xoa'){
+							$('#chatD div[l]').after('~~~');
+							$('#chatD div[r]').after('~');
+							$('#PNCentry').val('[Lịch sử] ' + $('#chatD').text());
+							$('#PNCsubmit').click();
+							$('#chatD').after('<div id="chatD"></div>').remove();
+							$('#chatD').append('<div l><img src="file:///D:/PICTURE/OBJECT/Emo/Blue/64%20(14).png">Mát mẻ! Màn hình lại đẹp đẽ như xưa!</div>').hide().fadeIn(400);
+							$('#chatD div+div').remove().remove();
+						}
+						else if (chatV=='/dulieu'){
+							window.open("https://docs.google.com/spreadsheet/lv?key=0Aj5LwIrfa0OFdFBXQkswUTlCVHZSX1NJVFRnODVMcVE&type=view&gid=0&f=false&sortcolid=-1&sortasc=true&rowsperpage=250");
+							$('#chatD div+div').remove().remove();
+						}	
+						//Xóa ô nhập lệnh
+						$('#chatV').val('');
+					}
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div id="main">
+			<div id="chatD"></div>
+			<div id="chatC">
+				<input id="chatV" type="text" list="hisCom">
+				<datalist id="hisCom">
+					
+				</datalist>
+			</div>
+		</div>		
+		<form id="PNC-g-Form" action="https://docs.google.com/forms/d/1sZQka3bVVyvKFZxzSYHN_ly5s-ptg4kdwCd6j7WlVgY/formResponse" method="POST" target="basket" onsubmit="">
+			<textarea name="entry.928434384" id="PNCentry" rows="8" cols="0" class="ss-q-long valid" dir="auto"></textarea>
+			<input type="hidden" name="draftResponse" value="[]">
+			<input type="hidden" name="pageHistory" value="0">
+			<input type="submit" name="submit" id="PNCsubmit" value="Gửi">
+		</form>
+		<iframe name="basket" id="basket"></iframe>
+	</body>
+</html>
