@@ -26,12 +26,12 @@
 		</div>
 		<div class="collapse navbar-collapse" id="myNavbar">
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="../SV5T/index.html">Trang chủ</a></li>
+				<li><a href="../SV5T/index.html">Trang chủ</a></li>
 				<li><a href="../SV5T/tieuchi.html">Tiêu chí</a></li>
 				<li><a href="../SV5T/huongdan.html">Hướng dẫn</a></li> 
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="../SV5T/dangnhap.html"><span class="glyphicon glyphicon-log-in"></span> Đăng nhập</a></li>
+				<li class="active"><a href="../SV5T/dangnhap.html"><span class="glyphicon glyphicon-log-in"></span> Đăng nhập</a></li>
 			</ul>
 		</div>
 	</div>
@@ -42,20 +42,27 @@
 	<h6 class="hidden-xs">HỘI SINH VIÊN VIỆT NAM TRƯỜNG ĐẠI HỌC SƯ PHẠM THÀNH PHỐ HỒ CHÍ MINH</h6>
 	<h6 class="visible-xs-block">HSV VN TRƯỜNG ĐHSP TP.HCM</h6>
 	<div class="row">
-		<div class="col-sm-3"></div>
-		<div class="col-sm-6">
-			<img src="img/logoSV5T.png" style="width:280px;margin:0 auto;display:block"/>
-			<form role="form" id="stufind">
-				<div class="form-group">
-					<input class="form-control input-lg" id="inputstufind" maxlength="11" type="text" placeholder="Nhập MSSV để kiểm tra" autocomplete="off" />
-					<input type="hidden" name="redirect" id="inputstufindredirect" value="ketqua.html?sid=">
-					<button type="submit" class="btn btn-default btn-primary" style="float:right;margin:-46px -4px 0 0;padding:13px 30px;border:0;border-radius:0 6px 6px 0">
-						<span class="glyphicon glyphicon-search"></span>
-					</button>
+		<div class="col-sm-4"></div>
+		<div class="col-sm-4">
+				<div class="panel panel-primary">
+					<div class="panel-heading">ĐĂNG NHẬP HỆ THỐNG</div>
+					<div class="panel-body">
+						<center><img src="img/Hoisinhvien.png" style="width:120px"></center>
+						<form role="form" id="login">
+							<div class="form-group">
+								<label for="uid">Tên đăng nhập</label>
+								<input type="text" class="form-control" id="uid">
+							</div>
+							<div class="form-group">
+								<label for="pwd">Mật khẩu</label>
+								<input type="password" class="form-control" id="pwd">
+							</div>
+							<button type="submit" class="btn btn-primary btn-md">ĐĂNG NHẬP </button>
+						</form>
+					</div>
 				</div>
-			</form>		
 		</div>
-		<div class="col-sm-3"></div>
+		<div class="col-sm-4"></div>
 	</div>
 </div>
 <div id="footer">
