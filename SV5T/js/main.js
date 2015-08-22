@@ -12,7 +12,7 @@
 			txt='K'+txt;
 			if(txt[3]!='.' && txt.length>=3) txt=txt.slice(0,3)+'.'+txt.slice(3);
 			if(txt[7]!='.' && txt.length>=7) txt=txt.slice(0,7)+'.'+txt.slice(7);
-			$('#inputstufindredirect').val('ketqua.html?sid='+txt);
+			$('#inputstufindredirect').val('ketqua.html?sid='+txt+'&lv=LCH');
 			$('#inputstufind').val(txt);
 		}
 	});
@@ -23,8 +23,10 @@
 		$('#inputstufind').keyup();
 	});
 	
-	//Chọn cấp khi xem kết quả
-	$('#kqCap+ul a').click(function(){
-		$('#kqCap').html($(this).text() +'<span class="caret"></span>');
-	});
+	//Đọc dữ liệu khi vào trang kết quả
+	$('#kqCap').html('cấp '+((window.location.search.indexOf('HSV')!=-1)? 'HSV Trường' : 'Liên Chi Hội') +'<span class="caret"></span>');
+	var sid=window.location.href.split('?sid=')[1].split('&lv=')[0];
+	$('#kqCap+ul a:nth(0)').attr('href','../SV5T/ketqua.html?sid='+sid+'&lv=HSV');
+	$('#kqCap+ul a:nth(1)').attr('href','../SV5T/ketqua.html?sid='+sid+'&lv=LCH');
+	$('#kqmssv').text(sid);
 });
