@@ -11,10 +11,16 @@
 	<script src="js/main.js"></script>
 </head>
 <body>
+
+<noscript><br><br><br><br><div class="container"><div class="row"><div class="col-sm-4"></div><div class="col-sm-4"><div class="panel panel-danger"><div class="panel-heading">KHÔNG THỂ HOẠT ĐỘNG</div><div class="panel-body text-danger text-justify">Trình duyệt không hỗ trợ Javascript hoặc ngăn trang này sử dụng Javascript. Hãy Đổi trình duyệt khác hoặc kích hoạt Javascript để trang có thể hoạt động bình thường.<br><br>* Thử với <a href="https://www.google.com/chrome/" rel="nofollow">Google Chrome</a>.<br>* Xem <a href="https://goo.gl/egyclu" rel="nofollow">cách bật Javascript</a>.</div></div></div><div class="col-sm-4"></div></div></div><style>.navbar-right,nav+.container{display:none!important}	#footer{position:fixed;bottom:20px}</style></noscript>
+
 <nav class="navbar navbar-default navbar-fixed-top">
 	<div class="container-fluid">
 		<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span> 
 			</button>
 			<a class="navbar-brand" href="../SV5T/index.html" style="width:220px;">
 				<img src="img/Hoisinhvien.png" style="width:40px;float:left;margin:-10px 10px 0 0;">
@@ -23,12 +29,14 @@
 		</div>
 		<div class="collapse navbar-collapse" id="myNavbar">
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="../SV5T/index.html">Trang chủ</a></li>
-				<li><a href="../SV5T/tieuchi.html">Tiêu chí</a></li>
-				<li><a href="../SV5T/huongdan.html">Hướng dẫn</a></li> 
+				<li class="active"><a href="../SV5T/index.html"><span class="glyphicon glyphicon-home"></span> Trang chủ</a></li>
+				<li><a href="../SV5T/tieuchi.html"><span class="glyphicon glyphicon-star"></span> Tiêu chí</a></li>
+				<li><a href="../SV5T/huongdan.html"><span class="glyphicon glyphicon-question-sign"></span> Hướng dẫn</a></li> 
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="../SV5T/dangnhap.html"><span class="glyphicon glyphicon-log-in"></span> Đăng nhập</a></li>
+				<li><a href="../SV5T/quantri.html"><span class="glyphicon glyphicon-wrench"></span> Bảng điều khiển</a></li>
+				<li><a href="../SV5T/dangnhap.html?act=thoat"><span class="glyphicon glyphicon-log-out"></span> Thoát</a></li>
 			</ul>
 		</div>
 	</div>
@@ -42,10 +50,10 @@
 		<div class="col-sm-2"></div>
 		<div class="col-sm-5">
 			<h3>Thông tin sinh viên</h4>
-			<span class="col-info">MSSV:</span> <span id="kqmssv">K39.103.009</span><br>
-			<span class="col-info">Họ và tên:</span>  <span id="kqhoten">Phạm Ngọc Cường</span><br>
-			<span class="col-info">Lớp:</span>  <span id="kqlop">K39.TIN.A</span><br>
-			<span class="col-info">Khoa:</span>  <span id="kqkhoa">CNTT</span>
+			<span class="col-info">MSSV:</span> <strong><span id="kqmssv">K39.103.009</span></strong><br>
+			<span class="col-info">Họ và tên:</span>  <strong><span id="kqhoten">Phạm Ngọc Cường</span></strong><br>
+			<span class="col-info">Lớp:</span>  <strong><span id="kqlop">K39.TIN.A</span></strong><br>
+			<span class="col-info">Khoa:</span>  <strong><span id="kqkhoa">CNTT</span></strong>
 		</div>
 		<div class="col-sm-5">
 			<h3>Mức độ phấn đấu</h4>

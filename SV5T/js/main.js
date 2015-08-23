@@ -1,32 +1,102 @@
 ﻿$(function(){
+	var id='', pass='', lv='';
+	//Tooltip
+	$('[data-toggle="tooltip"]').tooltip(); 
 	//Chuyển hướng trang khi gặp ?redirect=
 	if(window.location.search.indexOf('?redirect=')!=-1){
 		window.location=decodeURIComponent(window.location.search.split('?redirect=')[1]);
 	}
-	
+	//Lưu quyền đăng nhập khi vào trang
+	if(typeof(Storage) !== 'undefined'){
+		id = sessionStorage.uid;
+		pass=sessionStorage.upass;
+		lv=sessionStorage.ulv;
+		window.sessionStorage.uid ='';
+		window.sessionStorage.upass='';
+		window.sessionStorage.ulv=''
+		window.onbeforeunload = function(){
+			window.sessionStorage.uid = id;
+			window.sessionStorage.upass=pass;
+			window.sessionStorage.ulv=lv
+		}
+		//alert(id+' '+pass+' '+lv);
+	}
+	//Kiểm tra đăng nhập
+	if(lv>0){
+		$('.navbar-right li:nth(0)').remove();
+	}else{
+		$('.navbar-right li:nth(1),.navbar-right li:nth(2)').remove();
+	}
 	//Điểu chỉnh MSSV sang dạng Kxx.xxx.xxx
 	$('#inputstufind').keyup(function(){
 		var txt=$('#inputstufind').val().toUpperCase();
 		if(txt.length>0){
+			$('#findremove').show();
 			txt=txt.replace(/[^0-9]/gi,'');
 			txt='K'+txt;
 			if(txt[3]!='.' && txt.length>=3) txt=txt.slice(0,3)+'.'+txt.slice(3);
 			if(txt[7]!='.' && txt.length>=7) txt=txt.slice(0,7)+'.'+txt.slice(7);
 			$('#inputstufindredirect').val('ketqua.html?sid='+txt+'&lv=LCH');
 			$('#inputstufind').val(txt);
+		}else{
+			$('#findremove').hide();
 		}
 	});
-	$('#inputstufind').keypress(function(){
-		$('#inputstufind').keyup();
+	$('#inputstufind').keypress(function(){$('#inputstufind').keyup()});
+	$('#inputstufind').focusout(function(){$('#inputstufind').keyup()});
+	$('#findremove').click(function(){
+		$('#inputstufind').val('').focus();
+		$(this).hide();
 	});
-	$('#inputstufind').focusout(function(){
-		$('#inputstufind').keyup();
-	});
-	
-	//Đọc dữ liệu khi vào trang kết quả
-	$('#kqCap').html('cấp '+((window.location.search.indexOf('HSV')!=-1)? 'HSV Trường' : 'Liên Chi Hội') +'<span class="caret"></span>');
-	var sid=window.location.href.split('?sid=')[1].split('&lv=')[0];
-	$('#kqCap+ul a:nth(0)').attr('href','../SV5T/ketqua.html?sid='+sid+'&lv=HSV');
-	$('#kqCap+ul a:nth(1)').attr('href','../SV5T/ketqua.html?sid='+sid+'&lv=LCH');
-	$('#kqmssv').text(sid);
+	//Xử lý dữ liệu trang kết quả
+	if(window.location.href.indexOf('ketqua.html')!=-1){
+		$('#kqCap').html('cấp '+((window.location.search.indexOf('HSV')!=-1)? 'HSV Trường' : 'Liên Chi Hội') +'<span class="caret"></span>');
+		var sid=window.location.href.split('?sid=')[1].split('&lv=')[0];
+		$('#kqCap+ul a:nth(0)').attr('href','../SV5T/ketqua.html?sid='+sid+'&lv=HSV');
+		$('#kqCap+ul a:nth(1)').attr('href','../SV5T/ketqua.html?sid='+sid+'&lv=LCH');
+		$('#kqmssv').text(sid);
+	}
+	//Xử lý dữ liệu trang đăng nhập
+	if(window.location.href.indexOf('dangnhap.html')!=-1){
+		if(typeof(Storage) !== 'undefined') {
+			if(window.location.search.indexOf('?uid=')!=-1){
+				id = window.location.search.split('uid=')[1];
+				pass=id.split('&key=')[1];
+				id=id.split('&key=')[0];
+				lv=1;
+				if(id.toLowerCase()=='adminsv5t' && pass=='86f3059b228c8acf99e69734b6bb32cc'){
+					window.sessionStorage.uid = id;
+					window.sessionStorage.upass=pass;
+					window.sessionStorage.ulv=lv
+					window.location.href='../SV5T/quantri.html';
+				}else{
+					$('#loginlogwarn').show();
+				}
+			}else if(window.location.search.indexOf('?act=thoat')!=-1){
+				id=pass=lv='';
+				window.location.href='../SV5T/index.html';
+			}
+			$('#login #uid').keypress(function(){
+				var mid = $('#uid').val();
+				var mpass = $('#pwd').val();
+				mpass = md5(md5(mpass)+mpass);
+				
+				$('#inputstuloginredirect').val('dangnhap.html?uid='+mid+'&key='+mpass);		
+			});
+			$('#login #uid').keyup(function(){$('#login #uid').keypress()});
+			$('#login #uid').focusout(function(){$('#login #uid').keypress()});
+			$('#login #pwd').keypress(function(){$('#login #uid').keypress()});
+			$('#login #pwd').keyup(function(){$('#login #uid').keypress()})
+			$('#login #pwd').focusout(function(){$('#login #uid').keypress()});
+		}else{
+			$('#loginform').remove();
+			$('#loginwarn').show();
+		}
+	}
+	//Xử lý dữ liệu trang điều khiển
+	if(window.location.href.indexOf('quantri.html')!=-1){
+		if(lv<=0){
+			window.location.href='../SV5T/dangnhap.html';
+		}
+	}
 });

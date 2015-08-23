@@ -22,7 +22,7 @@ h1,h2,h3,h4,h5,h6{
 	color:#0093DD!important
 }
 span.col-info {
-    width: 83px;
+    width:90px;
     display: inline-block;
 }
 span[id^="kq"] .progress {
@@ -32,15 +32,24 @@ span[id^="kq"] .progress {
 }
 #footer {
     position: static;
-	margin-top:100px;
+	margin-top:50px;
     color: #0093DD!important;
     padding: 5px 0;
     width: 100%;
     text-align: center;
 }
-
 @media(max-height:520px){
 	#footer br{
 		display:inline-block!important
 	}
+}
+#acp h3 {
+    margin-top: 0;
+}
+textarea#qtnote {
+    outline: 0;
+    border: 0;
+    width: 100%!important;
+    overflow:auto;
+    height:300px!important;
 }

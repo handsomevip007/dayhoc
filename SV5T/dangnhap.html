@@ -9,12 +9,16 @@
 	<script src="js/jquery-1.11.3.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/main.js"></script>
+	<script src="js/md5.min.js"></script>
 </head>
 <body>
+
+<noscript><br><br><br><br><div class="container"><div class="row"><div class="col-sm-4"></div><div class="col-sm-4"><div class="panel panel-danger"><div class="panel-heading">KHÔNG THỂ HOẠT ĐỘNG</div><div class="panel-body text-danger text-justify">Trình duyệt không hỗ trợ Javascript hoặc ngăn trang này sử dụng Javascript. Hãy Đổi trình duyệt khác hoặc kích hoạt Javascript để trang có thể hoạt động bình thường.<br><br>* Thử với <a href="https://www.google.com/chrome/" rel="nofollow">Google Chrome</a>.<br>* Xem <a href="https://goo.gl/egyclu" rel="nofollow">cách bật Javascript</a>.</div></div></div><div class="col-sm-4"></div></div></div><style>.navbar-right,nav+.container{display:none!important}	#footer{position:fixed;bottom:20px}</style></noscript>
+
 <nav class="navbar navbar-default navbar-fixed-top">
 	<div class="container-fluid">
 		<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span> 
@@ -26,12 +30,14 @@
 		</div>
 		<div class="collapse navbar-collapse" id="myNavbar">
 			<ul class="nav navbar-nav">
-				<li><a href="../SV5T/index.html">Trang chủ</a></li>
-				<li><a href="../SV5T/tieuchi.html">Tiêu chí</a></li>
-				<li><a href="../SV5T/huongdan.html">Hướng dẫn</a></li> 
+				<li><a href="../SV5T/index.html"><span class="glyphicon glyphicon-home"></span> Trang chủ</a></li>
+				<li><a href="../SV5T/tieuchi.html"><span class="glyphicon glyphicon-star"></span> Tiêu chí</a></li>
+				<li><a href="../SV5T/huongdan.html"><span class="glyphicon glyphicon-question-sign"></span> Hướng dẫn</a></li> 
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li class="active"><a href="../SV5T/dangnhap.html"><span class="glyphicon glyphicon-log-in"></span> Đăng nhập</a></li>
+				<li><a href="../SV5T/quantri.html"><span class="glyphicon glyphicon-wrench"></span> Bảng điều khiển</a></li>
+				<li><a href="../SV5T/dangnhap.html?act=thoat"><span class="glyphicon glyphicon-log-out"></span> Thoát</a></li>
 			</ul>
 		</div>
 	</div>
@@ -41,26 +47,41 @@
 	<h1 class="visible-xs-block">SV5T<sup> MS</sup></h1>
 	<h6 class="hidden-xs">HỘI SINH VIÊN VIỆT NAM TRƯỜNG ĐẠI HỌC SƯ PHẠM THÀNH PHỐ HỒ CHÍ MINH</h6>
 	<h6 class="visible-xs-block">HSV VN TRƯỜNG ĐHSP TP.HCM</h6>
+	<br><br>
 	<div class="row">
 		<div class="col-sm-4"></div>
 		<div class="col-sm-4">
-				<div class="panel panel-primary">
-					<div class="panel-heading">ĐĂNG NHẬP HỆ THỐNG</div>
-					<div class="panel-body">
-						<center><img src="img/Hoisinhvien.png" style="width:120px"></center>
-						<form role="form" id="login">
-							<div class="form-group">
-								<label for="uid">Tên đăng nhập</label>
-								<input type="text" class="form-control" id="uid">
+			<div class="panel panel-primary" id="loginform">
+				<div class="panel-heading">ĐĂNG NHẬP HỆ THỐNG</div>
+				<div class="panel-body">
+					<center><img src="img/Hoisinhvien.png" style="width:120px"></center>
+					<form role="form" id="login">
+						<div class="panel panel-danger hidden" id="loginlogwarn">
+							<div class="panel-heading">
+								<span class="glyphicon glyphicon-warning-sign"></span>
+								Tên đăng nhập hoặc mật khẩu không đúng
 							</div>
-							<div class="form-group">
-								<label for="pwd">Mật khẩu</label>
-								<input type="password" class="form-control" id="pwd">
-							</div>
-							<button type="submit" class="btn btn-primary btn-md">ĐĂNG NHẬP </button>
-						</form>
-					</div>
+						</div>
+						<div class="form-group">
+							<label for="uid">Tên đăng nhập</label>
+							<input type="text" class="form-control" id="uid" required>
+						</div>
+						<div class="form-group">
+							<label for="pwd">Mật khẩu</label>
+							<input type="password" class="form-control" id="pwd" required>
+						</div>
+						<input type="hidden" name="redirect" id="inputstuloginredirect" value="dangnhap.html?uid=">
+						<button type="submit" class="btn btn-primary btn-md">ĐĂNG NHẬP</button>
+					</form>
 				</div>
+			</div>
+			<div class="panel panel-danger hidden" id="loginwarn">
+				<div class="panel-heading">KHÔNG THỂ ĐĂNG NHẬP</div>
+				<div class="panel-body text-danger text-justify">
+					Trình duyệt đang sử dụng có thể đã lỗi thời hoặc không thể thực hiện xử lý dữ liệu cần thiết cho quá trình đăng nhập.<br><br>Hãy nâng cấp trình duyệt hiện tại hoặc sử dụng một trình duyệt khác.<br><br>* Thử với 
+					<a href="https://www.google.com/chrome/" rel="nofollow">Google Chrome</a>.
+				</div>
+			</div>
 		</div>
 		<div class="col-sm-4"></div>
 	</div>

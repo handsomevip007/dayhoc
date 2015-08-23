@@ -1,0 +1,153 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+	<title>HCMUP SV5T [MS]</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/main.css">
+	<script src="js/jquery-1.11.3.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/main.js"></script>
+</head>
+<body>
+
+<noscript><br><br><br><br><div class="container"><div class="row"><div class="col-sm-4"></div><div class="col-sm-4"><div class="panel panel-danger"><div class="panel-heading">KHÔNG THỂ HOẠT ĐỘNG</div><div class="panel-body text-danger text-justify">Trình duyệt không hỗ trợ Javascript hoặc ngăn trang này sử dụng Javascript. Hãy Đổi trình duyệt khác hoặc kích hoạt Javascript để trang có thể hoạt động bình thường.<br><br>* Thử với <a href="https://www.google.com/chrome/" rel="nofollow">Google Chrome</a>.<br>* Xem <a href="https://goo.gl/egyclu" rel="nofollow">cách bật Javascript</a>.</div></div></div><div class="col-sm-4"></div></div></div><style>.navbar-right,nav+.container{display:none!important}	#footer{position:fixed;bottom:20px}</style></noscript>
+
+<nav class="navbar navbar-default navbar-fixed-top">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span> 
+			</button>
+			<a class="navbar-brand" href="../SV5T/index.html" style="width:220px;">
+				<img src="img/Hoisinhvien.png" style="width:40px;float:left;margin:-10px 10px 0 0;">
+				HCMUP SV5T<sup>MS</sup>
+			</a>
+		</div>
+		<div class="collapse navbar-collapse" id="myNavbar">
+			<ul class="nav navbar-nav">
+				<li><a href="../SV5T/index.html"><span class="glyphicon glyphicon-home"></span> Trang chủ</a></li>
+				<li><a href="../SV5T/tieuchi.html"><span class="glyphicon glyphicon-star"></span> Tiêu chí</a></li>
+				<li><a href="../SV5T/huongdan.html"><span class="glyphicon glyphicon-question-sign"></span> Hướng dẫn</a></li> 
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="../SV5T/dangnhap.html"><span class="glyphicon glyphicon-log-in"></span> Đăng nhập</a></li>
+				<li class="active"><a href="../SV5T/quantri.html"><span class="glyphicon glyphicon-wrench"></span> Bảng điều khiển</a></li>
+				<li><a href="../SV5T/dangnhap.html?act=thoat"><span class="glyphicon glyphicon-log-out"></span> Thoát</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
+<div class="container">
+	<br>
+	<div class="row" id="acp">
+		<div class="col-sm-2" id="mnuQuanTri">
+			<ul class="nav nav-pills nav-stacked hidden-xs" fdata-spy="affix" fdata-offset-top="-1">
+				<li class="active"><a data-toggle="pill" href="#mnu1"><span class="glyphicon glyphicon-list-alt"></span> TỔNG QUAN</a></li>
+				<li><a data-toggle="pill" href="#mnu2"><span class="glyphicon glyphicon-check"></span> ĐIỂM DANH</a></li>
+				<li><a data-toggle="pill" href="#mnu3"><span class="glyphicon glyphicon-fire"></span> HOẠT ĐỘNG</a></li>
+				<li><a data-toggle="pill" href="#mnu4"><span class="glyphicon glyphicon-user"></span> SINH VIÊN</a></li>
+				<li><a data-toggle="pill" href="#mnu5"><span class="glyphicon glyphicon-stats"></span> THỐNG KÊ</a></li>
+			</ul>
+			<ul class="nav nav-pills visible-xs-inline-block" fdata-spy="affix" fdata-offset-top="-1">
+				<li class="active"><a data-toggle="pill" href="#mnu1"><span class="glyphicon glyphicon-list-alt"></span></a></li>
+				<li><a data-toggle="pill" href="#mnu2"><span class="glyphicon glyphicon-check"></span></a></li>
+				<li><a data-toggle="pill" href="#mnu3"><span class="glyphicon glyphicon-fire"></span></a></li>
+				<li><a data-toggle="pill" href="#mnu4"><span class="glyphicon glyphicon-user"></span></a></li>
+				<li><a data-toggle="pill" href="#mnu5"><span class="glyphicon glyphicon-stats"></span></a></li>
+			</ul>
+		</div>
+		<div class="col-sm-10 well well-sm" style="min-height:450px">
+			<div class="tab-content text-justify">
+				<div id="mnu1" class="tab-pane fade in active">
+					<h3><span class="glyphicon glyphicon-list-alt"></span> Tổng quan</h3>
+					<div class="row">
+						<div class="col-sm-6">
+							<div class="panel panel-info" style="height:135px">
+								<div class="panel-heading">Thông tin tài khoản</div>
+								<div class="panel-body">
+									<span class="col-info">Tên truy cập:</span> <strong><span id="qtuid">adminSV5T</span></strong><br>
+									<span class="col-info">Cấp quản lý:</span> <strong><span id="qtulv">HSV Trường</span></strong><br>
+									<span class="col-info">Mật khẩu:</span> <strong><button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal">Đổi mật khẩu</button></strong>
+								</div>
+							</div>
+							<div class="panel panel-success" style="height:215px">
+								<div class="panel-heading">Hướng dẫn</div>
+								<div class="panel-body">
+									<a href="#">Cách đưa dữ liệu từ lên từ file Excel.</a><br>
+									<a href="#">Cách tạo và điều chỉnh các tiêu chí xét SV5T.</a><br>
+									<a href="#">Cách tạo và chỉnh sửa thông tin hoạt động.</a><br>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="panel panel-warning" style="height:370px">
+								<div class="panel-heading">Ghi chú chung <button type="button" class="btn btn-warning btn-xs pull-right" data-dismiss="modal" data-toggle="tooltip" data-placement="left" title="Lưu ghi chú"><span class="glyphicon glyphicon-floppy-disk"></span></button></div>
+								<div class="panel-body">
+									<textarea id="qtnote">Nơi ghi chú chung của tất cả các khoa khi sử dụng hệ thống này.
+									
+Nhập nội dung >> Bấm nút vàng trên góc đề lưu.</textarea>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="mnu2" class="tab-pane fade">
+					<h3><span class="glyphicon glyphicon-check"></span> Điểm danh</h3>
+				</div>
+				<div id="mnu3" class="tab-pane fade">
+					<h3><span class="glyphicon glyphicon-fire"></span> Hoạt động</h3>
+				</div>
+				<div id="mnu4" class="tab-pane fade">
+					<h3><span class="glyphicon glyphicon-user"></span> Sinh viên</h3>
+				</div>
+				<div id="mnu5" class="tab-pane fade">
+					<h3>
+						<span class="glyphicon glyphicon-stats"></span> Thống kê
+						<a href="../SV5T/quantri.html?pl=thongke&rel=true" class="btn pull-right btn-primary btn-xs" role="button" data-toggle="tooltip" data-placement="left" title="Cập nhật dữ liệu"><span class="glyphicon glyphicon-refresh"></span></a>
+					</h3>
+				</div>
+			</div>	
+		</div>
+		<div id="myModal" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">ĐỔI MẬT KHẨU</h4>
+					</div>
+					<div class="modal-body">
+						<form role="form" id="qtchangepass">
+							<div class="form-group">
+								<label for="pwd">Nhập mật khẩu hiện tại</label>
+								<input type="password" class="form-control" id="pwdht" required>
+							</div>
+							<div class="form-group">
+								<label for="pwd">Nhập mật khẩu mới</label>
+								<input type="password" class="form-control" id="pwdm1" required>
+							</div>
+							<div class="form-group">
+								<label for="pwd">Nhập lại mật khẩu mới</label>
+								<input type="password" class="form-control" id="pwdm2" required>
+							</div>
+							<input type="hidden" name="redirect" id="inputstuchpassredirect" value="dangnhap.html?changePass&uid=&key=&newkey1=&newkey2=">
+							<button type="submit" class="btn btn-primary btn-md">XÁC NHẬN</button>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Huỷ bỏ</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="footer">
+	Bản quyền &copy; thuộc về <br class="visible-xs-inline-block">HSV VN Trường ĐH Sư Phạm TP.HCM
+</div>
+
+</body>
+</html>
