@@ -44,25 +44,26 @@
 <div class="container">
 	<br>
 	<div class="row" id="acp">
-		<div class="col-sm-2" id="mnuQuanTri">
-			<ul class="nav nav-pills nav-stacked hidden-xs" fdata-spy="affix" fdata-offset-top="-1">
-				<li class="active"><a data-toggle="pill" href="#mnu1"><span class="glyphicon glyphicon-list-alt"></span> TỔNG QUAN</a></li>
-				<li><a data-toggle="pill" href="#mnu2"><span class="glyphicon glyphicon-check"></span> ĐIỂM DANH</a></li>
-				<li><a data-toggle="pill" href="#mnu3"><span class="glyphicon glyphicon-fire"></span> HOẠT ĐỘNG</a></li>
-				<li><a data-toggle="pill" href="#mnu4"><span class="glyphicon glyphicon-user"></span> SINH VIÊN</a></li>
-				<li><a data-toggle="pill" href="#mnu5"><span class="glyphicon glyphicon-stats"></span> THỐNG KÊ</a></li>
+		<nav class="col-sm-2" id="mnuQuanTri">
+			<ul class="nav nav-pills nav-stacked hidden-xs" style="position:fixed">
+				<li><a data-toggle="pill" href="#plTQ"><span class="glyphicon glyphicon-list-alt"></span> TỔNG QUAN</a></li>
+				<li><a data-toggle="pill" href="#plDD"><span class="glyphicon glyphicon-check"></span> ĐIỂM DANH</a></li>
+				<li><a data-toggle="pill" href="#plHD"><span class="glyphicon glyphicon-fire"></span> HOẠT ĐỘNG</a></li>
+				<li><a data-toggle="pill" href="#plSV"><span class="glyphicon glyphicon-user"></span> SINH VIÊN</a></li>
+				<li><a data-toggle="pill" href="#plTK"><span class="glyphicon glyphicon-stats"></span> THỐNG KÊ</a></li>
 			</ul>
-			<ul class="nav nav-pills visible-xs-inline-block" fdata-spy="affix" fdata-offset-top="-1">
-				<li class="active"><a data-toggle="pill" href="#mnu1"><span class="glyphicon glyphicon-list-alt"></span></a></li>
-				<li><a data-toggle="pill" href="#mnu2"><span class="glyphicon glyphicon-check"></span></a></li>
-				<li><a data-toggle="pill" href="#mnu3"><span class="glyphicon glyphicon-fire"></span></a></li>
-				<li><a data-toggle="pill" href="#mnu4"><span class="glyphicon glyphicon-user"></span></a></li>
-				<li><a data-toggle="pill" href="#mnu5"><span class="glyphicon glyphicon-stats"></span></a></li>
+			<ul class="nav nav-pills visible-xs-inline-block">
+				<li><a data-toggle="pill" href="#plTQ"><span class="glyphicon glyphicon-list-alt"></span></a></li>
+				<li><a data-toggle="pill" href="#plDD"><span class="glyphicon glyphicon-check"></span></a></li>
+				<li><a data-toggle="pill" href="#plHD"><span class="glyphicon glyphicon-fire"></span></a></li>
+				<li><a data-toggle="pill" href="#plHD"><span class="glyphicon glyphicon-fire"></span></a></li>
+				<li><a data-toggle="pill" href="#plSV"><span class="glyphicon glyphicon-user"></span></a></li>
+				<li><a data-toggle="pill" href="#plTK"><span class="glyphicon glyphicon-stats"></span></a></li>
 			</ul>
-		</div>
+		</nav>
 		<div class="col-sm-10 well well-sm" style="min-height:450px">
 			<div class="tab-content text-justify">
-				<div id="mnu1" class="tab-pane fade in active">
+				<div id="plTQ" class="tab-pane fade">
 					<h3><span class="glyphicon glyphicon-list-alt"></span> Tổng quan</h3>
 					<div class="row">
 						<div class="col-sm-6">
@@ -85,7 +86,7 @@
 						</div>
 						<div class="col-sm-6">
 							<div class="panel panel-warning" style="height:370px">
-								<div class="panel-heading">Ghi chú chung <button type="button" class="btn btn-warning btn-xs pull-right" data-dismiss="modal" data-toggle="tooltip" data-placement="left" title="Lưu ghi chú"><span class="glyphicon glyphicon-floppy-disk"></span></button></div>
+								<div class="panel-heading">Ghi chú chung <button type="button" class="btn btn-warning btn-xs pull-right" data-dismiss="modal" data-tooltip="tooltip" data-placement="left" title="Lưu ghi chú"><span class="glyphicon glyphicon-floppy-disk"></span></button></div>
 								<div class="panel-body">
 									<textarea id="qtnote">Nơi ghi chú chung của tất cả các khoa khi sử dụng hệ thống này.
 									
@@ -95,19 +96,130 @@ Nhập nội dung >> Bấm nút vàng trên góc đề lưu.</textarea>
 						</div>
 					</div>
 				</div>
-				<div id="mnu2" class="tab-pane fade">
-					<h3><span class="glyphicon glyphicon-check"></span> Điểm danh</h3>
+				<div id="plDD" class="tab-pane fade">
+					<h3>
+						<span class="glyphicon glyphicon-check"></span> Điểm danh
+						
+					</h3>
+					
 				</div>
-				<div id="mnu3" class="tab-pane fade">
-					<h3><span class="glyphicon glyphicon-fire"></span> Hoạt động</h3>
+				<div id="plHD" class="tab-pane fade">
+					<h3>
+						<span class="glyphicon glyphicon-fire"></span> Hoạt động
+						<button class="btn btn-success btn-sm" role="button" data-tooltip="tooltip" data-placement="bottom" title="Thêm hoạt động" data-toggle="collapse" href="#HDthemHD"><span class="glyphicon glyphicon-plus"></span></button>
+						<button class="btn btn-warning btn-sm" role="button" data-tooltip="tooltip" data-placement="bottom" title="Tìm hoạt động" data-toggle="collapse" href="#HDtimHD"><span class="glyphicon glyphicon-search"></span></button>
+						
+						<a href="../SV5T/quantri.html?pl=HD" class="btn btn-primary btn-sm pull-right" role="button" data-tooltip="tooltip" data-placement="left" title="Cập nhật dữ liệu"><span class="glyphicon glyphicon-refresh"></span></a>
+					</h3>
+					<div class="panel panel-success collapse" id="HDthemHD">
+						<div class="panel-heading">Thêm hoạt động</div>
+						<div class="panel-body">
+							<div class="col-sm-6">
+								<div class="form-group">
+									<label for="HDtenHD">Tên hoạt động:
+										<span class="glyphicon glyphicon-question-sign text-info" data-tooltip="tooltip" data-placement="right" title="Tên đơn giản hoặc mô tả ngắn gọi về hoạt động."></span>
+									</label>
+									<input type="text" class="form-control" id="HDtenHD" placeholder="Tiếp sức mùa thi 2015" required>
+								</div>
+								<div class="form-group">
+									<label for="HDthgianHD">Thời gian: 
+										<span class="glyphicon glyphicon-question-sign text-info" data-tooltip="tooltip" data-placement="right" title="Nhập thời gian bắt đầu diễn ra hoạt động. Thời gian tự động được quy đổi sang năm học và học kì tương ứng."></span>
+									</label><br>
+									<div class="col-xs-6">
+										<input type="number" class="form-control" id="HDthangHD" min="1" max="12" placeholder="6" data-tooltip="tooltip" data-placement="top" title="Tháng" required>
+									</div>
+									<div class="col-xs-6">
+										<input type="number" class="form-control" id="HDnamHD" min="2010" max="2099" placeholder="2015" data-tooltip="tooltip" data-placement="top" title="Năm" required>
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="HDghchuHD">Ghi chú:
+										<span class="glyphicon glyphicon-question-sign text-info" data-tooltip="tooltip" data-placement="right" title="Tên đầy đủ hoặc mô tả chi tiết, thông tin thêm."></span>
+									</label>
+									<textarea class="form-control" rows="4" id="HDghchuHD" placeholder="Hoạt động hỗ trợ phụ huynh - thí sinh tham gia kì thi THPT Quốc gia 2015 tại các Q3, Q5, Q11 cụm thi Đại học Sư phạm TP. Hồ Chí Minh"></textarea>
+								</div>
+							</div>
+							<div class="col-sm-6">
+								<div class="form-group">
+									<label for="HDdonviHD">Đơn vị tổ chức/quản lý:
+										<span class="glyphicon glyphicon-question-sign text-info" data-tooltip="tooltip" data-placement="right" title="Hệ thống này quy định các tổ chức, đoàn thể cấp trường sẽ được gọi là chung là HSV Trường, các tổ chức cấp khoa sẽ gọi chung là LCH Khoa."></span>
+									</label>
+									<select class="form-control" id="HDdonviHD">
+										<option value="TRG">HSV Trường</option>
+										<option value="103">LCH Khoa CNTT</option>
+									</select>
+								</div>
+								<div class="form-group">
+									<label for="HDtukhoaHD">Từ khoá:
+										<span class="glyphicon glyphicon-question-sign text-info" data-tooltip="tooltip" data-placement="right" title="Tên viết tắt của hoặc cụm từ đặc trưng."></span>
+									</label>
+									<input type="text" class="form-control" id="HDtukhoaHD" placeholder="TSMT2015" required>
+								</div>
+								<div class="form-group">
+									<label for="HDmaHD">Mã hoạt động:
+										<span class="glyphicon glyphicon-question-sign text-info" data-tooltip="tooltip" data-placement="right" title="Mỗi hoạt động có một mã riêng. Mã này hình thành dựa trên một số thông tin được khai báo trước đó."></span>
+									</label>
+									<input type="text" class="form-control" id="HDmaHD" placeholder="TRG14153@TSMT2015" readonly>
+								</div>
+								<div class="form-group">
+									<button class="btn btn-success btn-sm" role="button" id="HDchnhanHD">CHẤP NHẬN</button>
+									<button class="btn btn-default btn-sm pull-right" role="button" id="HDlamlai">LÀM LẠI</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="panel panel-warning collapse" id="HDtimHD">
+						<div class="panel-heading">Tìm hoạt động</div>
+						<div class="panel-body">
+							<div class="col-sm-6">
+								
+							</div>
+							<div class="col-sm-6">
+
+							</div>
+						</div>
+					</div>
+					<div class="panel panel-primary" id="HDdsHD">
+						<div class="panel-heading">Danh sách hoạt động</div>
+						<div class="panel-body">
+							<div class="table-responsive">
+								<table class="table table-striped">
+									<thead>
+										<tr class="text-primary">
+											<th>Mã hoạt động</th><th>Tên hoạt động</th><th style="width:95px">Năm học</th><th style="width:70px">Học kì</th><th style="width:250px">Ghi chú</th><th style="width:80px">Thao tác</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>TRG14153@TSMT2015</td><td>Tiếp sức mùa thi 2015</td>
+											<td>2014 - 2015</td><td>3</td><td>Hoạt động hỗ trợ phụ huynh - thí sinh tham gia kì thi THPT Quốc gia 2015 tại các Q3, Q5, Q11 cụm thi Đại học Sư phạm TP. Hồ Chí Minh</td>
+											<td>
+												<a href="../SV5T/quantri.html?pl=HD&edit=TRG14153@TSMT2015" class="btn btn-warning btn-xs" role="button" data-tooltip="tooltip" data-placement="left" title="Sửa"><span class="glyphicon glyphicon-cog"></span></a>
+												<button del="TRG14153@TSMT2015" class="btn btn-danger btn-xs" role="button"><span class="glyphicon glyphicon-trash"></span></button>
+											</td>
+										</tr>
+										<tr>
+											<td>10314151@ITDay2014</td><td>Ngày hội CNTT 2014</td>
+											<td>2014 - 2015</td><td>1</td><td>...</td>
+											<td>
+												<a href="../SV5T/quantri.html?pl=HD&edit=10314151@ITDay2014" class="btn btn-warning btn-xs" role="button" data-tooltip="tooltip" data-placement="left" title="Sửa"><span class="glyphicon glyphicon-cog"></span></a>
+												
+												<button del="10314151@ITDay2014" class="btn btn-danger btn-xs" role="button"><span class="glyphicon glyphicon-trash"></span></button>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
 				</div>
-				<div id="mnu4" class="tab-pane fade">
+				<div id="plSV" class="tab-pane fade">
 					<h3><span class="glyphicon glyphicon-user"></span> Sinh viên</h3>
 				</div>
-				<div id="mnu5" class="tab-pane fade">
+				<div id="plTK" class="tab-pane fade">
 					<h3>
 						<span class="glyphicon glyphicon-stats"></span> Thống kê
-						<a href="../SV5T/quantri.html?pl=thongke&rel=true" class="btn pull-right btn-primary btn-xs" role="button" data-toggle="tooltip" data-placement="left" title="Cập nhật dữ liệu"><span class="glyphicon glyphicon-refresh"></span></a>
+						<a href="../SV5T/quantri.html?pl=TK" class="btn pull-right btn-primary btn-sm" role="button" data-tooltip="tooltip" data-placement="left" title="Cập nhật dữ liệu"><span class="glyphicon glyphicon-refresh"></span></a>
 					</h3>
 				</div>
 			</div>	
@@ -148,6 +260,29 @@ Nhập nội dung >> Bấm nút vàng trên góc đề lưu.</textarea>
 <div id="footer">
 	Bản quyền &copy; thuộc về <br class="visible-xs-inline-block">HSV VN Trường ĐH Sư Phạm TP.HCM
 </div>
+
+<!-- Để tạo tiêu chí
+<div class="form-group">
+	<label for="HDphloaitchuanHD">Phân loại tiêu chuẩn:</label>
+	<select class="form-control" id="HDphloaitchuanHD">
+		<option value="HTT">Học tập tốt</option>
+		<option value="DDT">Đạo đức tốt</option>
+		<option value="KNT">Kĩ năng tốt</option>
+		<option value="HNT">Hội nhập tốt</option>
+		<option value="TLT">Thể lực tốt</option>
+	</select>
+</div>
+<div class="form-group">
+	<label for="HDphloaitchiHD">Phân loại tiêu chí:</label>
+	<select class="form-control" id="HDphloaitchiHD">
+		<option value="1">Tiêu chí bắt buộc</option>
+		<option value="2">Tiêu chí ưu tiên</option>
+		<option value="3">Tiêu chí bắt buộc trong số</option>
+		<option value="HNT">Hội nhập tốt</option>
+		<option value="TLT">Thể lực tốt</option>
+	</select>
+</div>
+-->
 
 </body>
 </html>

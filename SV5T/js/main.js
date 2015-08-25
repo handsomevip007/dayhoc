@@ -1,7 +1,8 @@
 ﻿$(function(){
 	var id='', pass='', lv='';
 	//Tooltip
-	$('[data-toggle="tooltip"]').tooltip(); 
+	$('[data-tooltip="tooltip"]').tooltip();
+    $('[data-popover="popover"]').popover();   
 	//Chuyển hướng trang khi gặp ?redirect=
 	if(window.location.search.indexOf('?redirect=')!=-1){
 		window.location=decodeURIComponent(window.location.search.split('?redirect=')[1]);
@@ -98,5 +99,39 @@
 		if(lv<=0){
 			window.location.href='../SV5T/dangnhap.html';
 		}
+		//Điều hướng
+		if(window.location.search.indexOf('pl=')!=-1){
+			var t=window.location.search.split('pl=')[1].slice(0,2);
+			$('[href="#pl'+t+'"]').click();
+		}else{
+			$('[href="#plTQ"]').click();
+		}
+		//Thêm hoạt động
+		$('#HDthangHD,#HDnamHD,#HDdonviHD,#HDtukhoaHD').change(function(){
+			var tg='', thang=$('#HDthangHD').val(), nam=($('#HDnamHD').val())%100;
+			if(thang>=9 && thang<=12){
+				tg=nam+''+(nam+1)+'1';
+			}else if(thang >=1 && thang<=5){
+				tg=(nam-1)+''+nam+'2';
+			}else{
+				tg=(nam-1)+''+nam+'3';
+			}
+			$('#HDmaHD').val($('#HDdonviHD').val()+tg+'@'+$('#HDtukhoaHD').val());
+		});
+		$('#HDlamlai').click(function(){
+			$('#HDthemHD input,#HDghchuHD').val('');;
+		});
+		//Xoá hoạt động
+		$('button[del]').click(function(e){
+			$(this).popover({title: "Xác nhận", content: '<button del2="'+$(this).attr('del')+'" class="btn btn-danger btn-xs" role="button">XOÁ</button>', html: true, placement: "top"});
+			if($(this).attr('c')!='1'){
+				$(this).attr('c','1').click();
+				$('button[del2]').click(function(){
+					$(this).parents('tr').remove();
+				});
+			}
+		});
 	}
+		
+	
 });
