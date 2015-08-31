@@ -20,7 +20,6 @@
 			window.sessionStorage.upass=pass;
 			window.sessionStorage.ulv=lv
 		}
-		//alert(id+' '+pass+' '+lv);
 	}
 	//Kiểm tra đăng nhập
 	if(lv>0){
@@ -60,35 +59,24 @@
 	//Xử lý dữ liệu trang đăng nhập
 	if(window.location.href.indexOf('dangnhap.html')!=-1){
 		if(typeof(Storage) !== 'undefined') {
-			if(window.location.search.indexOf('?uid=')!=-1){
-				id = window.location.search.split('uid=')[1];
-				pass=id.split('&key=')[1];
-				id=id.split('&key=')[0];
-				lv=1;
-				if(id.toLowerCase()=='adminsv5t' && pass=='86f3059b228c8acf99e69734b6bb32cc'){
-					window.sessionStorage.uid = id;
-					window.sessionStorage.upass=pass;
-					window.sessionStorage.ulv=lv
-					window.location.href='../SV5T/quantri.html';
-				}else{
-					$('#loginlogwarn').show();
-				}
-			}else if(window.location.search.indexOf('?act=thoat')!=-1){
+			if(window.location.search.indexOf('?act=thoat')!=-1){
 				id=pass=lv='';
 				window.location.href='../SV5T/index.html';
+			}else if(lv>0){
+				window.location.href='../SV5T/quantri.html';
 			}
-			$('#login #uid').keypress(function(){
+			$('#login').submit(function(){
 				var mid = $('#uid').val();
 				var mpass = $('#pwd').val();
 				mpass = md5(md5(mpass)+mpass);
-				
-				$('#inputstuloginredirect').val('dangnhap.html?uid='+mid+'&key='+mpass);		
+				if(mid.toLowerCase()=='adminsv5t' && mpass=='86f3059b228c8acf99e69734b6bb32cc'){
+					id=mid;
+					pass=mpass;
+					lv=1;
+				}else{
+					$('#loginlogwarn').show();
+				}
 			});
-			$('#login #uid').keyup(function(){$('#login #uid').keypress()});
-			$('#login #uid').focusout(function(){$('#login #uid').keypress()});
-			$('#login #pwd').keypress(function(){$('#login #uid').keypress()});
-			$('#login #pwd').keyup(function(){$('#login #uid').keypress()})
-			$('#login #pwd').focusout(function(){$('#login #uid').keypress()});
 		}else{
 			$('#loginform').remove();
 			$('#loginwarn').show();

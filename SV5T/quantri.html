@@ -12,7 +12,7 @@
 </head>
 <body>
 
-<noscript><br><br><br><br><div class="container"><div class="row"><div class="col-sm-4"></div><div class="col-sm-4"><div class="panel panel-danger"><div class="panel-heading">KHÔNG THỂ HOẠT ĐỘNG</div><div class="panel-body text-danger text-justify">Trình duyệt không hỗ trợ Javascript hoặc ngăn trang này sử dụng Javascript. Hãy Đổi trình duyệt khác hoặc kích hoạt Javascript để trang có thể hoạt động bình thường.<br><br>* Thử với <a href="https://www.google.com/chrome/" rel="nofollow">Google Chrome</a>.<br>* Xem <a href="https://goo.gl/egyclu" rel="nofollow">cách bật Javascript</a>.</div></div></div><div class="col-sm-4"></div></div></div><style>.navbar-right,nav+.container{display:none!important}	#footer{position:fixed;bottom:20px}</style></noscript>
+<noscript><br><br><br><br><div class="container"><div class="row"><div class="col-sm-4"></div><div class="col-sm-4"><div class="panel panel-danger"><div class="panel-heading">KHÔNG THỂ HOẠT ĐỘNG</div><div class="panel-body text-danger text-justify">Trình duyệt không hỗ trợ Javascript hoặc ngăn trang này sử dụng Javascript. Hãy đổi trình duyệt khác hoặc kích hoạt Javascript để trang có thể hoạt động bình thường.<br><br>* Thử với <a href="https://www.google.com/chrome/" rel="nofollow" target="_blank">Google Chrome</a>.<br>* Xem <a href="https://goo.gl/egyclu" rel="nofollow" target="_blank">cách bật Javascript</a>.</div></div></div><div class="col-sm-4"></div></div></div><style>.navbar-right,nav+.container{display:none!important}	#footer{position:fixed;bottom:20px}</style></noscript>
 
 <nav class="navbar navbar-default navbar-fixed-top">
 	<div class="container-fluid">
@@ -48,15 +48,16 @@
 			<ul class="nav nav-pills nav-stacked hidden-xs" style="position:fixed">
 				<li><a data-toggle="pill" href="#plTQ"><span class="glyphicon glyphicon-list-alt"></span> TỔNG QUAN</a></li>
 				<li><a data-toggle="pill" href="#plDD"><span class="glyphicon glyphicon-check"></span> ĐIỂM DANH</a></li>
-				<li><a data-toggle="pill" href="#plHD"><span class="glyphicon glyphicon-fire"></span> HOẠT ĐỘNG</a></li>
-				<li><a data-toggle="pill" href="#plSV"><span class="glyphicon glyphicon-user"></span> SINH VIÊN</a></li>
+				<li><a data-toggle="pill" href="#plHD"><span class="glyphicon glyphicon-fire"></span> QL HOẠT ĐỘNG</a></li>
+				<li><a data-toggle="pill" href="#plTC"><span class="glyphicon glyphicon-star"></span> QL TIÊU CHÍ</a></li>
+				<li><a data-toggle="pill" href="#plSV"><span class="glyphicon glyphicon-user"></span> QL SINH VIÊN</a></li>
 				<li><a data-toggle="pill" href="#plTK"><span class="glyphicon glyphicon-stats"></span> THỐNG KÊ</a></li>
 			</ul>
 			<ul class="nav nav-pills visible-xs-inline-block">
 				<li><a data-toggle="pill" href="#plTQ"><span class="glyphicon glyphicon-list-alt"></span></a></li>
 				<li><a data-toggle="pill" href="#plDD"><span class="glyphicon glyphicon-check"></span></a></li>
 				<li><a data-toggle="pill" href="#plHD"><span class="glyphicon glyphicon-fire"></span></a></li>
-				<li><a data-toggle="pill" href="#plHD"><span class="glyphicon glyphicon-fire"></span></a></li>
+				<li><a data-toggle="pill" href="#plTC"><span class="glyphicon glyphicon-star"></span></a></li>
 				<li><a data-toggle="pill" href="#plSV"><span class="glyphicon glyphicon-user"></span></a></li>
 				<li><a data-toggle="pill" href="#plTK"><span class="glyphicon glyphicon-stats"></span></a></li>
 			</ul>
@@ -96,16 +97,131 @@ Nhập nội dung >> Bấm nút vàng trên góc đề lưu.</textarea>
 						</div>
 					</div>
 				</div>
-				<div id="plDD" class="tab-pane fade">
+				<div id="plDD" class="tab-pane fade tab-content">
 					<h3>
 						<span class="glyphicon glyphicon-check"></span> Điểm danh
-						
+						<button class="btn btn-primary btn-sm" role="button" data-tooltip="tooltip" data-placement="bottom" title="Điểm danh trực tiếp" data-toggle="pill" href="#DDdesktopDD"><span class="glyphicon glyphicon-saved"></span></button>
+						<button class="btn btn-success btn-sm" role="button" data-tooltip="tooltip" data-placement="bottom" title="Nhập dữ liệu điểm danh từ file Excel" data-toggle="pill" href="#DDfileExcelDD"><span class="glyphicon glyphicon-open"></span></button>
+							
+						<a href="../SV5T/quantri.html?pl=DD" class="btn btn-primary btn-sm pull-right" role="button" data-tooltip="tooltip" data-placement="left" title="Cập nhật dữ liệu"><span class="glyphicon glyphicon-refresh"></span></a>
 					</h3>
-					
+					<div class="row tab-pane fade in active" id="DDdesktopDD">
+						<div class="col-sm-4">
+							<div class="panel panel-info" id="DDthtinDD">
+								<div class="panel-heading">Thông tin điểm danh</div>
+								<div class="panel-body">
+									<div class="form-group">
+										<label for="DDhdongDD">Mã hoạt động</label>
+										<input type="text" class="form-control" id="DDhdongDD" placeholder="TRG14153@TSMT2015" required>
+									</div>
+									<hr>
+									<div class="form-group">
+										<label for="DDlopDD">Mã lớp</label>
+										<input type="text" class="form-control" id="DDlopDD" placeholder="K39.TIN.A">
+									</div>
+									<center>hoặc</center>
+									<div class="form-group">
+										<label for="DDmssvDD">Mã số sinh viên</label>
+										<input type="text" class="form-control" id="DDmssvDD" placeholder="K39.103.009">
+									</div>
+									<div class="form-group">
+										<button class="btn btn-primary btn-block" role="button" id="DDlocDD">
+											<span class="glyphicon glyphicon-filter"></span> Lọc dữ liệu
+										</button>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-8">
+							<div class="panel panel-primary" id="DDdiemdanhDD">
+								<div class="panel-heading">Bảng điểm danh</div>
+								<div class="panel-body">
+									<div class="row">
+										<div class="col-sm-8">
+											<span class="col-info">Hoạt động:</span> <strong id="DDtenhdHD">Tiếp sức mùa thi 2015</strong><br>
+											<span class="col-info">Lớp:</span> <strong id="DDlopDD">K39.TIN.A</strong>
+										</div>
+										<div class="col-sm-4">
+											<ul class="pagination pagination-sm pull-right" style="margin:0">
+												<li class="active"><a href="#">1</a></li>
+												<li><a href="#">2</a></li>
+												<li><a href="#">3</a></li>
+												<li><a href="#">4</a></li>
+												<li><a href="#">5</a></li>
+											</ul>
+										</div>
+									</div>
+									<br>
+									<div class="table-responsive">
+										<table class="table table-striped dtable-bordered">
+											<thead>
+												<tr class="text-primary dinfo">
+													<th style="width:100px">MSSV</th>
+													<th>Họ và tên</th>
+													<th colspan="2" style="width:100px">Tham gia
+														<span class="glyphicon glyphicon-question-sign text-info" data-tooltip="tooltip" data-placement="top" title="0 là không tham gia, 1 là có tham gia."></span>
+													</th>
+													<th style="width:100px">Điểm
+														<span class="glyphicon glyphicon-question-sign text-info" data-tooltip="tooltip" data-placement="top" title="Hướng dẫn..."></span>
+													</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>K39.103.004</td><td>Phạm Việt Bình</td>
+													<td><input type="radio" name="DD39103004" checked><label>0</label></td>
+													<td><input type="radio" name="DD39103004"><label>1</label></td>
+													<td>
+														<input type="text" class="form-control" name="DD39103004" required>
+													</td>
+												</tr>
+												<tr>
+													<td>K39.103.009</td><td>Phạm Ngọc Cường</td>
+													<td><input type="radio" name="DD39103009" checked><label>0</label></td>
+													<td><input type="radio" name="DD39103009"><label>1</label></td>
+													<td>
+														<input type="text" class="form-control" name="DD39103009" required>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<button class="btn btn-primary" role="button" id="DDluuDD">
+										Lưu thay đổi
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row tab-pane fade" id="DDfileExcelDD">
+						<div class="col-sm-8">
+							<div class="panel panel-primary">
+								<div class="panel-heading">Nhập dữ liệu</div>
+								<div class="panel-body">
+									<span class="hidden-xs"><br><br><br></span>
+									<center><button class="btn btn-primary btn-lg" role="button" id="DDtailenDD"><span class="glyphicon glyphicon-open"></span> Tải file lên</button></center>
+									<span class="hidden-xs"><br><br><br></span>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-4">
+							<div class="panel panel-success">
+								<div class="panel-heading">Hướng dẫn</div>
+								<div class="panel-body">
+									(1) Tải file Excel mẫu.<br>
+									(2) Nhập đầy đủ, chính xác các nội dung cần thiết.<br>
+									(3) Lưu lại và tải lên hệ thống để tiến hành điểm danh.<br>
+									<hr>
+									<center><button class="btn btn-success" role="button" id="DDtaixuongDD"><span class="glyphicon glyphicon-save"></span> Tải file Excel mẫu</button></center>
+									
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 				<div id="plHD" class="tab-pane fade">
 					<h3>
-						<span class="glyphicon glyphicon-fire"></span> Hoạt động
+						<span class="glyphicon glyphicon-fire"></span>Quản lý hoạt động
 						<button class="btn btn-success btn-sm" role="button" data-tooltip="tooltip" data-placement="bottom" title="Thêm hoạt động" data-toggle="collapse" href="#HDthemHD"><span class="glyphicon glyphicon-plus"></span></button>
 						<button class="btn btn-warning btn-sm" role="button" data-tooltip="tooltip" data-placement="bottom" title="Tìm hoạt động" data-toggle="collapse" href="#HDtimHD"><span class="glyphicon glyphicon-search"></span></button>
 						
@@ -116,32 +232,34 @@ Nhập nội dung >> Bấm nút vàng trên góc đề lưu.</textarea>
 						<div class="panel-body">
 							<div class="col-sm-6">
 								<div class="form-group">
-									<label for="HDtenHD">Tên hoạt động:
+									<label for="HDtenHD">Tên hoạt động
 										<span class="glyphicon glyphicon-question-sign text-info" data-tooltip="tooltip" data-placement="right" title="Tên đơn giản hoặc mô tả ngắn gọi về hoạt động."></span>
 									</label>
 									<input type="text" class="form-control" id="HDtenHD" placeholder="Tiếp sức mùa thi 2015" required>
 								</div>
 								<div class="form-group">
-									<label for="HDthgianHD">Thời gian: 
+									<label for="HDthgianHD">Thời gian
 										<span class="glyphicon glyphicon-question-sign text-info" data-tooltip="tooltip" data-placement="right" title="Nhập thời gian bắt đầu diễn ra hoạt động. Thời gian tự động được quy đổi sang năm học và học kì tương ứng."></span>
 									</label><br>
-									<div class="col-xs-6">
-										<input type="number" class="form-control" id="HDthangHD" min="1" max="12" placeholder="6" data-tooltip="tooltip" data-placement="top" title="Tháng" required>
-									</div>
-									<div class="col-xs-6">
-										<input type="number" class="form-control" id="HDnamHD" min="2010" max="2099" placeholder="2015" data-tooltip="tooltip" data-placement="top" title="Năm" required>
+									<div class="row">
+										<div class="col-xs-6">
+											<input type="number" class="form-control" id="HDthangHD" min="1" max="12" placeholder="6" data-tooltip="tooltip" data-placement="top" title="Tháng" required>
+										</div>
+										<div class="col-xs-6">
+											<input type="number" class="form-control" id="HDnamHD" min="2010" max="2099" placeholder="2015" data-tooltip="tooltip" data-placement="top" title="Năm" required>
+										</div>
 									</div>
 								</div>
 								<div class="form-group">
-									<label for="HDghchuHD">Ghi chú:
+									<label for="HDghchuHD">Ghi chú
 										<span class="glyphicon glyphicon-question-sign text-info" data-tooltip="tooltip" data-placement="right" title="Tên đầy đủ hoặc mô tả chi tiết, thông tin thêm."></span>
 									</label>
-									<textarea class="form-control" rows="4" id="HDghchuHD" placeholder="Hoạt động hỗ trợ phụ huynh - thí sinh tham gia kì thi THPT Quốc gia 2015 tại các Q3, Q5, Q11 cụm thi Đại học Sư phạm TP. Hồ Chí Minh"></textarea>
+									<textarea class="form-control" rows="4" id="HDghchuHD" placeholder="Hoạt động hỗ trợ phụ huynh - thí sinh tham gia kì thi THPT Quốc gia 2015 tại Q1, Q3, Q5, Q11 cụm thi Đại học Sư phạm TP. Hồ Chí Minh"></textarea>
 								</div>
 							</div>
 							<div class="col-sm-6">
 								<div class="form-group">
-									<label for="HDdonviHD">Đơn vị tổ chức/quản lý:
+									<label for="HDdonviHD">Cấp tổ chức/quản lý
 										<span class="glyphicon glyphicon-question-sign text-info" data-tooltip="tooltip" data-placement="right" title="Hệ thống này quy định các tổ chức, đoàn thể cấp trường sẽ được gọi là chung là HSV Trường, các tổ chức cấp khoa sẽ gọi chung là LCH Khoa."></span>
 									</label>
 									<select class="form-control" id="HDdonviHD">
@@ -150,20 +268,20 @@ Nhập nội dung >> Bấm nút vàng trên góc đề lưu.</textarea>
 									</select>
 								</div>
 								<div class="form-group">
-									<label for="HDtukhoaHD">Từ khoá:
+									<label for="HDtukhoaHD">Từ khoá
 										<span class="glyphicon glyphicon-question-sign text-info" data-tooltip="tooltip" data-placement="right" title="Tên viết tắt của hoặc cụm từ đặc trưng."></span>
 									</label>
 									<input type="text" class="form-control" id="HDtukhoaHD" placeholder="TSMT2015" required>
 								</div>
 								<div class="form-group">
-									<label for="HDmaHD">Mã hoạt động:
+									<label for="HDmaHD">Mã hoạt động
 										<span class="glyphicon glyphicon-question-sign text-info" data-tooltip="tooltip" data-placement="right" title="Mỗi hoạt động có một mã riêng. Mã này hình thành dựa trên một số thông tin được khai báo trước đó."></span>
 									</label>
 									<input type="text" class="form-control" id="HDmaHD" placeholder="TRG14153@TSMT2015" readonly>
 								</div>
 								<div class="form-group">
-									<button class="btn btn-success btn-sm" role="button" id="HDchnhanHD">CHẤP NHẬN</button>
-									<button class="btn btn-default btn-sm pull-right" role="button" id="HDlamlai">LÀM LẠI</button>
+									<button class="btn btn-success btn-sm" role="button" id="HDchnhanHD">Chấp nhận</button>
+									<button class="btn btn-default btn-sm pull-right" role="button" id="HDlamlai">Làm lại</button>
 								</div>
 							</div>
 						</div>
@@ -171,11 +289,32 @@ Nhập nội dung >> Bấm nút vàng trên góc đề lưu.</textarea>
 					<div class="panel panel-warning collapse" id="HDtimHD">
 						<div class="panel-heading">Tìm hoạt động</div>
 						<div class="panel-body">
-							<div class="col-sm-6">
-								
+							<div class="col-sm-3">
+								<div class="form-group">
+									<label for="HDtmaHD">Mã hoạt động</label>
+									<input type="text" class="form-control" id="HDtmaHD" placeholder="TRG14153@TSMT2015">
+								</div>
 							</div>
-							<div class="col-sm-6">
-
+							<div class="col-sm-4">
+								<div class="form-group">
+									<label for="HDttenHD">Tên hoạt động</label>
+									<input type="text" class="form-control" id="HDttenHD" placeholder="Tiếp sức mùa thi 2015">
+								</div>
+							</div>
+							<div class="col-sm-3">
+								<div class="form-group">
+									<label for="HDttukhoaHD">Từ khoá</label>
+									<input type="text" class="form-control" id="HDttukhoaHD" placeholder="TSMT2015">
+								</div>
+							</div>
+							<div class="col-sm-2">
+								<div class="form-group">
+									<label for="HDtimtimHD" class="hidden-xs">&nbsp;</label>
+									<button class="btn btn-primary btn-block" role="button" id="HDttimHD">
+										<span class="glyphicon glyphicon-search"></span> Tìm kiếm
+									</button>
+								</div>
+								
 							</div>
 						</div>
 					</div>
@@ -186,13 +325,13 @@ Nhập nội dung >> Bấm nút vàng trên góc đề lưu.</textarea>
 								<table class="table table-striped">
 									<thead>
 										<tr class="text-primary">
-											<th>Mã hoạt động</th><th>Tên hoạt động</th><th style="width:95px">Năm học</th><th style="width:70px">Học kì</th><th style="width:250px">Ghi chú</th><th style="width:80px">Thao tác</th>
+											<th>Mã hoạt động</th><th>Tên hoạt động</th><th style="width:95px">Năm học</th><th style="width:70px">Học kì</th><th class="hidden-xs hidden-sm" style="width:250px">Ghi chú</th><th style="width:80px">Thao tác</th>
 										</tr>
 									</thead>
 									<tbody>
 										<tr>
 											<td>TRG14153@TSMT2015</td><td>Tiếp sức mùa thi 2015</td>
-											<td>2014 - 2015</td><td>3</td><td>Hoạt động hỗ trợ phụ huynh - thí sinh tham gia kì thi THPT Quốc gia 2015 tại các Q3, Q5, Q11 cụm thi Đại học Sư phạm TP. Hồ Chí Minh</td>
+											<td>2014 - 2015</td><td>3</td><td class="hidden-xs hidden-sm">Hoạt động hỗ trợ phụ huynh - thí sinh tham gia kì thi THPT Quốc gia 2015 tại Q1, Q3, Q5, Q11 cụm thi Đại học Sư phạm TP. Hồ Chí Minh</td>
 											<td>
 												<a href="../SV5T/quantri.html?pl=HD&edit=TRG14153@TSMT2015" class="btn btn-warning btn-xs" role="button" data-tooltip="tooltip" data-placement="left" title="Sửa"><span class="glyphicon glyphicon-cog"></span></a>
 												<button del="TRG14153@TSMT2015" class="btn btn-danger btn-xs" role="button"><span class="glyphicon glyphicon-trash"></span></button>
@@ -200,7 +339,7 @@ Nhập nội dung >> Bấm nút vàng trên góc đề lưu.</textarea>
 										</tr>
 										<tr>
 											<td>10314151@ITDay2014</td><td>Ngày hội CNTT 2014</td>
-											<td>2014 - 2015</td><td>1</td><td>...</td>
+											<td>2014 - 2015</td><td>1</td><td class="hidden-xs hidden-sm">...</td>
 											<td>
 												<a href="../SV5T/quantri.html?pl=HD&edit=10314151@ITDay2014" class="btn btn-warning btn-xs" role="button" data-tooltip="tooltip" data-placement="left" title="Sửa"><span class="glyphicon glyphicon-cog"></span></a>
 												
@@ -210,11 +349,82 @@ Nhập nội dung >> Bấm nút vàng trên góc đề lưu.</textarea>
 									</tbody>
 								</table>
 							</div>
+							<ul class="pagination pagination-sm pull-right">
+								<li class="active"><a href="#">1</a></li>
+								<li><a href="#">2</a></li>
+								<li><a href="#">3</a></li>
+								<li><a href="#">4</a></li>
+								<li><a href="#">5</a></li>
+							</ul>
 						</div>
 					</div>
 				</div>
+				<div id="plTC" class="tab-pane fade">
+					<h3><span class="glyphicon glyphicon-star"></span>Quản lý tiêu chí</h3>
+					<ul class="nav nav-tabs" style="margin-bottom:0px;border:0">
+						<li class="active">
+							<a data-toggle="tab" href="#menuHHT">
+								<span class="hidden-xs">Học tập tốt</span>
+								<span class="visible-xs-inline-block">HTT</span>
+							</a>
+						</li>
+						<li>
+							<a data-toggle="tab" href="#menuDDT">
+								<span class="hidden-xs">Đạo đức tốt</span>
+								<span class="visible-xs-inline-block">ĐĐT</span>
+							</a>
+						</li>
+						<li>
+							<a data-toggle="tab" href="#menuKNT">
+								<span class="hidden-xs">Kĩ năng tốt</span>
+								<span class="visible-xs-inline-block">KNT</span>
+							</a>
+						</li>
+						<li>
+							<a data-toggle="tab" href="#menuHNT">
+								<span class="hidden-xs">Hội nhập tốt</span>
+								<span class="visible-xs-inline-block">HNT</span>
+							</a>
+						</li>
+						<li>
+							<a data-toggle="tab" href="#menuTLT">
+								<span class="hidden-xs">Thể lực tốt</span>
+								<span class="visible-xs-inline-block">TLT</span>
+							</a>
+						</li>
+					</ul>
+					<div class="panel panel-default">
+						<div class="panel-body">
+							<div class="tab-content">
+								<div id="menuHHT" class="tab-pane fade in active">
+									<h3>Học tập tốt</h3>
+									<p>Các tiêu chí</p>
+								</div>
+								<div id="menuDDT" class="tab-pane fade">
+									<h3>Đạo đức tốt</h3>
+									<p>Các tiêu chí</p>
+								</div>
+								
+								<div id="menuKNT" class="tab-pane fade">
+									<h3>Kĩ năng tốt</h3>
+									<p>Các tiêu chí</p>
+								</div>
+								<div id="menuHNT" class="tab-pane fade">
+									<h3>Hội nhập tốt</h3>
+									<p>Các tiêu chí</p>
+								</div>
+								<div id="menuTLT" class="tab-pane fade">
+									<h3>Thể lực tốt</h3>
+									<p>Các tiêu chí</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				
+				</div>				
 				<div id="plSV" class="tab-pane fade">
-					<h3><span class="glyphicon glyphicon-user"></span> Sinh viên</h3>
+					<h3><span class="glyphicon glyphicon-user"></span>Quản lý sinh viên</h3>
+					
 				</div>
 				<div id="plTK" class="tab-pane fade">
 					<h3>
@@ -246,7 +456,7 @@ Nhập nội dung >> Bấm nút vàng trên góc đề lưu.</textarea>
 								<input type="password" class="form-control" id="pwdm2" required>
 							</div>
 							<input type="hidden" name="redirect" id="inputstuchpassredirect" value="dangnhap.html?changePass&uid=&key=&newkey1=&newkey2=">
-							<button type="submit" class="btn btn-primary btn-md">XÁC NHẬN</button>
+							<button type="submit" class="btn btn-primary btn-md">Xác nhận</button>
 						</form>
 					</div>
 					<div class="modal-footer">
