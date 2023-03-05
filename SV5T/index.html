@@ -1,72 +1,315 @@
-﻿<!DOCTYPE html>
-<html lang="vi">
+<!doctype html>
+<html lang="en">
+
 <head>
-	<title>HCMUP SV5T [MS]</title>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/main.css">
-	<script src="js/jquery-1.11.3.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/main.js"></script>
+    <title>SV5Tver2</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/jquery.contextMenu.css">
 </head>
+
 <body>
+    <div class="container">
+        <h1>Bộ tiêu chí Sinh viên 5 tốt</h1>
+        <ul class="nav nav-pills" id="myTab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="ddt-tab" data-toggle="tab" href="#ddt" role="tab" aria-controls="ddt" aria-selected="true">ĐẠO ĐỨC TỐT</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="htt-tab" data-toggle="tab" href="#htt" role="tab" aria-controls="htt" aria-selected="false">HỌC TẬP TỐT</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="tlt-tab" data-toggle="tab" href="#tlt" role="tab" aria-controls="tlt" aria-selected="false">THỂ LỰC TỐT</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="tnt-tab" data-toggle="tab" href="#tnt" role="tab" aria-controls="tnt" aria-selected="false">TÌNH NGUYỆN TỐT</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="hnt-tab" data-toggle="tab" href="#hnt" role="tab" aria-controls="hnt" aria-selected="false">HỘI NHẬP TỐT</a>
+            </li>
+        </ul>
+        <br>
+        <div class="tab-content">
+            <div class="tab-pane fade show active" id="ddt" role="tabpanel" aria-labelledby="ddt-tab">
+                <div class="card tc-And">
+                    <div class="card-header">Tiêu chuẩn bắt buộc (Đạt tất cả các tiêu chí sau)</div>
+                    <div class="card-body">
+                        <div class="card tc" data-score="80" data-id="455">
+                            <div class="card-body">
+                                Điểm rèn luyện đạt từ 80 điểm trở lên
+                            </div>
+                        </div>
+                        <div class="card tc" data-score="1" data-id="5625">
+                            <div class="card-body">
+                                Phân tích chất lượng Đoàn viên cuối năm (đối với Hội viên là Đoàn viên) đạt xuất sắc
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card tc-Or">
+                    <div class="card-header">Tiêu chuẩn khác (Đạt 1 trong các tiêu chí sau)</div>
+                    <div class="card-body">
+                        <div class="card tc" data-score="1" data-id="5625">
+                            <div class="card-body">
+                                Điểm rèn luyện đạt từ 80 điểm trở lên
+                            </div>
+                        </div>
+                        <div class="card tc" data-score="1" data-id="5625">
+                            <div class="card-body">
+                                Phân tích chất lượng Đoàn viên cuối năm (đối với Hội viên là Đoàn viên) đạt xuất sắc
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card tc-Priority">
+                    <div class="card-header">Tiêu chuẩn ưu tiên</div>
+                    <div class="card-body">
+                        <div class="card tc" data-score="1" data-id="5625">
+                            <div class="card-body">
+                                Điểm rèn luyện đạt từ 80 điểm trở lên
+                            </div>
+                        </div>
+                        <div class="card tc" data-score="1" data-id="5625">
+                            <div class="card-body">
+                                Phân tích chất lượng Đoàn viên cuối năm (đối với Hội viên là Đoàn viên) đạt xuất sắc
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-<noscript><br><br><br><br><div class="container"><div class="row"><div class="col-sm-4"></div><div class="col-sm-4"><div class="panel panel-danger"><div class="panel-heading">KHÔNG THỂ HOẠT ĐỘNG</div><div class="panel-body text-danger text-justify">Trình duyệt không hỗ trợ Javascript hoặc ngăn trang này sử dụng Javascript. Hãy đổi trình duyệt khác hoặc kích hoạt Javascript để trang có thể hoạt động bình thường.<br><br>* Thử với <a href="https://www.google.com/chrome/" rel="nofollow" target="_blank">Google Chrome</a>.<br>* Xem <a href="https://goo.gl/egyclu" rel="nofollow" target="_blank">cách bật Javascript</a>.</div></div></div><div class="col-sm-4"></div></div></div><style>.navbar-right,nav+.container{display:none!important}	#footer{position:fixed;bottom:20px}</style></noscript>
+            <div class="tab-pane fade" id="htt" role="tabpanel" aria-labelledby="htt-tab">
+                <div class="card tc-And">
+                    <div class="card-header">Tiêu chuẩn bắt buộc (Đạt tất cả các tiêu chí sau)</div>
+                    <div class="card-body">
+                        <div class="card tc" data-score="1" data-id="5625">
+                            <div class="card-body">
+                                Điểm rèn luyện đạt từ 80 điểm trở lên
+                            </div>
+                        </div>
+                        <div class="card tc" data-score="1" data-id="5625">
+                            <div class="card-body">
+                                Phân tích chất lượng Đoàn viên cuối năm (đối với Hội viên là Đoàn viên) đạt xuất sắc
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card tc-Or">
+                    <div class="card-header">Tiêu chuẩn khác (Đạt 1 trong các tiêu chí sau)</div>
+                    <div class="card-body">
+                        <div class="card tc" data-score="1" data-id="5625">
+                            <div class="card-body">
+                                Điểm rèn luyện đạt từ 80 điểm trở lên
+                            </div>
+                        </div>
+                        <div class="card tc" data-score="1" data-id="5625">
+                            <div class="card-body">
+                                Phân tích chất lượng Đoàn viên cuối năm (đối với Hội viên là Đoàn viên) đạt xuất sắc
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card tc-Priority">
+                    <div class="card-header">Tiêu chuẩn ưu tiên</div>
+                    <div class="card-body">
+                        <div class="card tc" data-score="1" data-id="5625">
+                            <div class="card-body">
+                                Điểm rèn luyện đạt từ 80 điểm trở lên
+                            </div>
+                        </div>
+                        <div class="card tc" data-score="1" data-id="5625">
+                            <div class="card-body">
+                                Phân tích chất lượng Đoàn viên cuối năm (đối với Hội viên là Đoàn viên) đạt xuất sắc
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="tlt" role="tabpanel" aria-labelledby="tlt-tab">
+                <div class="card tc-And">
+                    <div class="card-header">Tiêu chuẩn bắt buộc (Đạt tất cả các tiêu chí sau)</div>
+                    <div class="card-body">
+                        <div class="card tc" data-score="1" data-id="5625">
+                            <div class="card-body">
+                                Điểm rèn luyện đạt từ 80 điểm trở lên
+                            </div>
+                        </div>
+                        <div class="card tc" data-score="1" data-id="5625">
+                            <div class="card-body">
+                                Phân tích chất lượng Đoàn viên cuối năm (đối với Hội viên là Đoàn viên) đạt xuất sắc
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card tc-Or">
+                    <div class="card-header">Tiêu chuẩn khác (Đạt 1 trong các tiêu chí sau)</div>
+                    <div class="card-body">
+                        <div class="card tc" data-score="1" data-id="5625">
+                            <div class="card-body">
+                                Điểm rèn luyện đạt từ 80 điểm trở lên
+                            </div>
+                        </div>
+                        <div class="card tc" data-score="1" data-id="5625">
+                            <div class="card-body">
+                                Phân tích chất lượng Đoàn viên cuối năm (đối với Hội viên là Đoàn viên) đạt xuất sắc
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card tc-Priority">
+                    <div class="card-header">Tiêu chuẩn ưu tiên</div>
+                    <div class="card-body">
+                        <div class="card tc" data-score="1" data-id="5625">
+                            <div class="card-body">
+                                Điểm rèn luyện đạt từ 80 điểm trở lên
+                            </div>
+                        </div>
+                        <div class="card tc" data-score="1" data-id="5625">
+                            <div class="card-body">
+                                Phân tích chất lượng Đoàn viên cuối năm (đối với Hội viên là Đoàn viên) đạt xuất sắc
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-<nav class="navbar navbar-default navbar-fixed-top">
-	<div class="container-fluid">
-		<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span> 
-			</button>
-			<a class="navbar-brand" href="../SV5T/index.html" style="width:220px;">
-				<img src="img/Hoisinhvien.png" style="width:40px;float:left;margin:-10px 10px 0 0;">
-				HCMUP SV5T<sup>MS</sup>
-			</a>
-		</div>
-		<div class="collapse navbar-collapse" id="myNavbar">
-			<ul class="nav navbar-nav">
-				<li class="active"><a href="../SV5T/index.html"><span class="glyphicon glyphicon-home"></span> Trang chủ</a></li>
-				<li><a href="../SV5T/tieuchi.html"><span class="glyphicon glyphicon-star"></span> Tiêu chí</a></li>
-				<li><a href="../SV5T/huongdan.html"><span class="glyphicon glyphicon-question-sign"></span> Hướng dẫn</a></li> 
-			</ul>
-			<ul class="nav navbar-nav navbar-right">
-				<li><a href="../SV5T/dangnhap.html"><span class="glyphicon glyphicon-log-in"></span> Đăng nhập</a></li>
-				<li><a href="../SV5T/quantri.html"><span class="glyphicon glyphicon-wrench"></span> Bảng điều khiển</a></li>
-				<li><a href="../SV5T/dangnhap.html?act=thoat"><span class="glyphicon glyphicon-log-out"></span> Thoát</a></li>
-			</ul>
-		</div>
-	</div>
-</nav>
-<div class="container">
-	<h1 class="hidden-xs">SINH VIÊN 5 TỐT<sup> MS</sup></h1>
-	<h1 class="visible-xs-block">SV5T<sup> MS</sup></h1>
-	<h6 class="hidden-xs">HỘI SINH VIÊN VIỆT NAM TRƯỜNG ĐẠI HỌC SƯ PHẠM THÀNH PHỐ HỒ CHÍ MINH</h6>
-	<h6 class="visible-xs-block">HSV VN TRƯỜNG ĐHSP TP.HCM</h6>
-	<div class="row">
-		<div class="col-sm-3"></div>
-		<div class="col-sm-6">
-			<img src="img/logoSV5T.png" style="width:280px;margin:0 auto;display:block"/>
-			<form role="form" id="stufind">
-				<div class="form-group">
-					<input class="form-control input-lg" id="inputstufind" maxlength="11" type="text" placeholder="Nhập MSSV để kiểm tra" autocomplete="off" required/>
-					<input type="hidden" name="redirect" id="inputstufindredirect" value="ketqua.html?sid=">
-					<button type="submit" class="btn btn-default btn-primary" style="float:right;margin:-46px -4px 0 0;padding:13px 30px;border:0;border-radius:0 6px 6px 0">
-						<span class="glyphicon glyphicon-search"></span>
-					</button>
-				</div>
-				<div id="findremove" class="btn btn-link btn-xs" style="float:right;margin:-58px 70px 0 0;font-size:25px;text-decoration:none;display:none">&times;</div>
-			</form>		
-		</div>
-		<div class="col-sm-3"></div>
-	</div>
-</div>
-<div id="footer">
-	Bản quyền &copy; thuộc về <br class="visible-xs-inline-block">HSV VN Trường ĐH Sư Phạm TP.HCM
-</div>
-
+            <div class="tab-pane fade" id="tnt" role="tabpanel" aria-labelledby="tnt-tab">
+                <div class="card tc-And">
+                    <div class="card-header">Tiêu chuẩn bắt buộc (Đạt tất cả các tiêu chí sau)</div>
+                    <div class="card-body">
+                        <div class="card tc-Sum">
+                            <div class="card-header">Tham gia ít nhất 5 ngày hoạt động tình nguyện</div>
+                            <div class="card-body">
+                                <div class="card tc" data-score="1" data-id="5625">
+                                    <div class="card-body">
+                                    Mái ấm nhà mở (0.5 ngày)
+                                    </div>
+                                </div>
+                                <div class="card tc" data-score="1" data-id="5625">
+                                    <div class="card-body">
+                                    Thứ 7 tình nguyện (0.5 ngày)
+                                    </div>
+                                </div>
+                                <div class="card tc" data-score="1" data-id="5625">
+                                    <div class="card-body">
+                                    Chủ nhật xanh (0.5 ngày)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card tc-Less">
+                                <div class="card-header">Tham gia ít nhất 2 chiến dịch tình nguyện</div>
+                                <div class="card-body">
+                                    <div class="card tc" data-score="1" data-id="5625">
+                                        <div class="card-body">
+                                        Mùa hè xanh
+                                        </div>
+                                    </div>
+                                    <div class="card tc" data-score="1" data-id="5625">
+                                        <div class="card-body">
+                                        Xuân tình nguyện
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+                <div class="card tc-Or">
+                    <div class="card-header">Tiêu chuẩn khác (Đạt 1 trong các tiêu chí sau)</div>
+                    <div class="card-body">
+                        <div class="card tc" data-score="1" data-id="5625">
+                            <div class="card-body">
+                                Điểm rèn luyện đạt từ 80 điểm trở lên
+                            </div>
+                        </div>
+                        <div class="card tc" data-score="1" data-id="5625">
+                            <div class="card-body">
+                                Phân tích chất lượng Đoàn viên cuối năm (đối với Hội viên là Đoàn viên) đạt xuất sắc
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card tc-Priority">
+                    <div class="card-header">Tiêu chuẩn ưu tiên</div>
+                    <div class="card-body">
+                        <div class="card tc" data-score="1" data-id="5625">
+                            <div class="card-body">
+                                Điểm rèn luyện đạt từ 80 điểm trở lên
+                            </div>
+                        </div>
+                        <div class="card tc" data-score="1" data-id="5625">
+                            <div class="card-body">
+                                Phân tích chất lượng Đoàn viên cuối năm (đối với Hội viên là Đoàn viên) đạt xuất sắc
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="hnt" role="tabpanel" aria-labelledby="hnt-tab">
+                <div class="card tc-And">
+                    <div class="card-header">Tiêu chuẩn bắt buộc (Đạt tất cả các tiêu chí sau)</div>
+                    <div class="card-body">
+                        <div class="card tc" data-score="1" data-id="5625">
+                            <div class="card-body">
+                                Điểm rèn luyện đạt từ 80 điểm trở lên
+                            </div>
+                        </div>
+                        <div class="card tc" data-score="1" data-id="5625">
+                            <div class="card-body">
+                                Phân tích chất lượng Đoàn viên cuối năm (đối với Hội viên là Đoàn viên) đạt xuất sắc
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card tc-Or">
+                    <div class="card-header">Tiêu chuẩn khác (Đạt 1 trong các tiêu chí sau)</div>
+                    <div class="card-body">
+                        <div class="card tc" data-score="1" data-id="5625">
+                            <div class="card-body">
+                                Điểm rèn luyện đạt từ 80 điểm trở lên
+                            </div>
+                        </div>
+                        <div class="card tc" data-score="1" data-id="5625">
+                            <div class="card-body">
+                                Phân tích chất lượng Đoàn viên cuối năm (đối với Hội viên là Đoàn viên) đạt xuất sắc
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card tc-Priority">
+                    <div class="card-header">Tiêu chuẩn ưu tiên</div>
+                    <div class="card-body">
+                        <div class="card tc" data-score="1" data-id="5625">
+                            <div class="card-body">
+                                Điểm rèn luyện đạt từ 80 điểm trở lên
+                            </div>
+                        </div>
+                        <div class="card tc" data-score="1" data-id="5625">
+                            <div class="card-body">
+                                Phân tích chất lượng Đoàn viên cuối năm (đối với Hội viên là Đoàn viên) đạt xuất sắc
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="activity-list" style="display:none">
+        <div class="container">
+            <div data-id="52252">Điểm rèn luyện</div>
+            <div data-id="142">Phân tích chất lượng Đoàn viên</div>
+            <div data-id="8854">Mùa hè xanh</div>
+        </div>
+    </div>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.ui.position.min.js"></script>
+    <script src="js/jquery.contextMenu.js"></script>
+    <script src="js/main.js"></script>
 </body>
+
 </html>

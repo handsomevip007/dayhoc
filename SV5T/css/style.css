@@ -1,0 +1,109 @@
+.tc{
+    margin-bottom:10px;
+    padding-right: 70px;
+}
+.tc-And>.card-header{
+    font-weight:bold;
+    background-color:#F8BBD0;
+}
+.tc-And{
+    border:1px solid #e91e63;
+    color:#e91e63;
+    margin-bottom:15px;
+}
+.tc-Or>.card-header{
+    font-weight:bold;
+    background-color:#fff9c4;
+}
+.tc-Or{
+    border:1px solid #FF9800;
+    color:#FF9800;
+    margin-bottom:15px;
+}
+.tc-Sum>.card-header{
+    font-weight:bold;
+    background-color:#c8e6c9;
+}
+.tc-Sum{
+    border:1px solid #4caf50;
+    color:#4caf50;
+    margin-bottom:15px;
+}
+.tc-Less>.card-header{
+    font-weight:bold;
+    background-color:#D1C4E9;
+}
+.tc-Less{
+    border:1px solid #673AB7;
+    color:#673AB7;
+    margin-bottom:15px;
+}
+.tc-Priority>.card-header{
+    font-weight:bold;
+    background-color:#b2ebf2;
+}
+.tc-Priority{
+    border:1px solid #00acc1;
+    color:#00acc1;
+    margin-bottom:15px;
+}
+.card.tc::after,.tc>input {
+    font-size: 25px;
+    content:attr(data-score);
+    right: 0;
+    position: absolute;
+    top: 0;
+    width: 70px!important;
+    height:64px!important;
+    display: block;
+    text-align: center;
+    line-height: 64px;
+    z-index:1;
+}
+.tc>input {
+    z-index:2;
+    background:#F5F5F5!important;
+}
+.card-header input,.tc .card-body input,.tc>input{
+    background: transparent;
+    border: 0;
+    width: 100%;
+    resize: none;
+    height: 27px;
+    padding: 0;
+    overflow: hidden;
+    line-height: 1.5;
+    margin-bottom: -9px;
+    font-weight: bold;
+    outline: none;
+    color: gray;
+    font-style: italic;
+}
+.tc .card-body input,.tc>input{
+    font-weight:normal;
+
+}
+#activity-list {
+    left: 0!important;
+    padding-top: 20px;
+    padding: 20px;
+    z-index: 3;
+}
+#activity-list .container{
+    padding: 20px;
+    background: #FFF;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    height:40vh;
+    color: gray;
+    overflow: auto;
+}
+#activity-list .container div{
+    padding:6px 15px;
+    cursor: pointer;
+}
+#activity-list .container div:hover {
+    background: rgba(0, 0, 0, 0.075);
+}
+.tcSelect {
+    box-shadow: 0 0 12px;
+}

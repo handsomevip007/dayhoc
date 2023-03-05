@@ -1,0 +1,14 @@
+stages:
+    - deploy
+
+deploy:
+    stage: deploy
+    script:
+        - echo "Deploying . . ."
+        - whoami
+        - mkdir -p /var/www/homie/cuongpham
+        - cp -a ./* /var/www/homie/cuongpham
+        - cd /var/www/homie/cuongpham
+        - pwd
+        - ls
+        - echo "Completed !!!"
