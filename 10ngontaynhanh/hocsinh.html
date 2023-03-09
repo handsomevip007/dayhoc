@@ -1,0 +1,82 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Dajanto, CuongPham.vn, mdo">
+    <title>10 ngón tay nhanh</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+
+    <meta name="theme-color" content="#563d7c">
+
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="assets/css/cover.css" rel="stylesheet">
+
+  </head>
+  <body class="text-center">
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+  <header class="masthead mb-auto">
+    <div class="inner">
+      <a href="index.html"><h3 class="masthead-brand text-uppercase">10 ngón tay nhanh</h3></a>
+      <nav class="nav nav-masthead justify-content-center">
+        <a class="nav-link active" href="hocsinh.html">Kiểm tra</a>
+        <a class="nav-link" href="bangdiem.html">Bảng điểm</a>
+      </nav>
+    </div>
+  </header>
+
+  <main role="main" class="inner cover">
+    <div id="resultTextfield"></div>
+    <div id="test">
+        <div id="problemTextfield" class="lead problemTextfield"></div>
+        <div class="row">
+        <div class="col-sm-9">
+          <input type="text" id="typingTextfield" contenteditable class="typingTextfield form-control mb-2"></input>
+        </div>
+        <div class="col-sm-2 col-6">
+          <div class="btn btn-md btn-block btn-danger" id="timerTextfield">60</div>
+        </div>
+        <div class="col-sm-1 col-6 px-0">
+          <button type="submit" class="btn btn-primary btn-block" onclick="document.location.reload()">↺</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="mastfoot mt-auto">
+    <div class="inner">
+      <p class="mb-0">Làm bởi <a href="https://www.cuongpham.vn/">thầy Cường</a> với tất cả ❤<br>
+        <small>10 ngón tay nhanh, phát triển từ dự án của Dajanto</small> - <small>Mẫu Cover cho <a href="https://getbootstrap.com/">Bootstrap</a>, của <a href="https://twitter.com/mdo">@mdo</a>.</small></p>
+    </div>
+  </footer>
+</div>
+<script src="assets/js/jsTypingChallenge.js"></script> 
+<script src="assets/js/jquery.min.js"></script>
+<script>
+  $(function(){
+    $('#typingTextfield').focus();
+  })
+</script>
+</body>
+</html>

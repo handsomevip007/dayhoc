@@ -1,0 +1,3 @@
+Click phải vào file hocsinh.html
+Chọn Open with...
+Chọn Google Chrome

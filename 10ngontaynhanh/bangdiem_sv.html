@@ -1,0 +1,102 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Dajanto, CuongPham.vn, mdo">
+    <title>10 ngón tay nhanh</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <meta name="theme-color" content="#563d7c">
+
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="assets/css/cover.css" rel="stylesheet">
+
+  </head>
+  <body class="text-center">
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+  <header class="masthead mb-auto">
+    <div class="inner">
+      <a href="index.html"><h3 class="masthead-brand text-uppercase">10 ngón tay nhanh</h3></a>
+      <nav class="nav nav-masthead justify-content-center">
+        <a class="nav-link" href="sinhvien.html">Kiểm tra</a>
+        <a class="nav-link active" href="bangdiem_sv.html">Bảng điểm</a>
+      </nav>
+    </div>
+  </header>
+
+  <main role="main" class="inner cover">
+    <table class="table table-bordered text-white">
+      <thead class="text-uppercase">
+        <tr>
+          <td colspan="4">Kết quả</td>
+          <td rowspan="2" style="vertical-align: middle;">Thời gian</td>
+        </tr>
+        <tr>
+          <td>Độ chính xác</td>
+          <td>Tốc độ</td>
+          <td>Số lỗi</td>
+          <td>Điểm</td>
+        </tr>
+      </thead>
+      <tbody id="score">
+      </tbody>
+    </table>
+    <div class="text-right">
+      <button id="resetScore" class="btn btn-sm btn-danger text-uppercase">Xoá bảng điểm</button>
+    </div>
+  </main>
+
+  <footer class="mastfoot mt-auto">
+    <div class="inner">
+      <p class="mb-0">Làm bởi <a href="https://www.cuongpham.vn/">thầy Cường</a> với tất cả ❤<br>
+        <small>10 ngón tay nhanh, phát triển từ dự án của Dajanto</small> - <small>Mẫu Cover cho <a href="https://getbootstrap.com/">Bootstrap</a>, của <a href="https://twitter.com/mdo">@mdo</a>.</small></p>
+    </div>
+  </footer>
+</div>
+<script src="assets/js/jsTypingChallenge.js"></script>
+<script src="assets/js/jquery.min.js"></script>
+<script>
+  $(function(){
+    var score = JSON.parse(window.localStorage.score_sv);
+    let max = score[0].accuracy;
+    let min = score[0].accuracy;
+    for(i=1;i<score.length;i++){
+      if(score[i].accuracy>max){
+        max = score[i].accuracy;
+      }
+      if(score[i].accuracy<min){
+        min = score[i].accuracy;
+      }
+    }
+    for(i=0;i<score.length;i++){
+      $('#score').prepend('<tr style="background:'+((max==score[i].accuracy)?'#17a2b8':((min==score[i].accuracy)?'#ff5f84':'transparent'))+'"><td>'+score[i].accuracy+'%</td><td>'+score[i].speed+'</td><td>'+score[i].wrong+'</td><td><a href="chamdiem.html?accuracy='+score[i].accuracy+'&speed='+score[i].speed+'&wrong='+score[i].wrong+'">Chấm điểm</a></td><td>'+score[i].time+'</td></tr>');
+    }
+    $('#resetScore').click(function() {
+      window.localStorage.score_sv = "[]";
+      window.location.reload();
+    })
+  })
+</script>
+</body>
+</html>

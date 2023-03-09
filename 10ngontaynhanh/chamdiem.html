@@ -1,0 +1,217 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Dajanto, CuongPham.vn, mdo">
+    <title>10 ngón tay nhanh</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <meta name="theme-color" content="#563d7c">
+
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="assets/css/cover.css" rel="stylesheet">
+
+  </head>
+  <body class="text-center">
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+      <header class="masthead mb-auto">
+        <div class="inner">
+          <a href="index.html"><h3 class="masthead-brand text-uppercase">10 ngón tay nhanh</h3></a>
+          <nav class="nav nav-masthead justify-content-center">
+            <a class="nav-link" href="sinhvien.html">Kiểm tra</a>
+            <a class="nav-link" href="bangdiem_sv.html">Bảng điểm</a>
+          </nav>
+        </div>
+      </header>
+
+      <main id="app" role="main" class="inner cover">
+        <table class="table table-bordered text-white">
+          <tr>
+            <td class="align-middle" rowspan="7">
+              <div style="-ms-writing-mode: tb-rl;-webkit-writing-mode: vertical-rl;writing-mode: vertical-rl;transform: rotate(180deg);white-space: nowrap;font-weight:bold">
+                KẾT QUẢ TÍNH ĐIỂM
+              </div>
+            </td>
+            <td class="align-middle text-left text-primary">Điểm tay</td>
+            <td class="align-middle text-primary">{{hands_score}}</td>
+            <td class="align-middle" colspan="2">
+              <div class="btn-group">
+                <button class="btn" :class="(hands_score==0)?'btn-primary':'btn-outline-primary'" @click="setHand(0)">0</button>
+                <button class="btn" :class="(hands_score==1)?'btn-primary':'btn-outline-primary'" @click="setHand(1)">1</button>
+                <button class="btn" :class="(hands_score==2)?'btn-primary':'btn-outline-primary'" @click="setHand(2)">2</button>
+                <button class="btn" :class="(hands_score==3)?'btn-primary':'btn-outline-primary'" @click="setHand(3)">3</button>
+                <button class="btn" :class="(hands_score==4)?'btn-primary':'btn-outline-primary'" @click="setHand(4)">4</button>
+                <button class="btn" :class="(hands_score==5)?'btn-primary':'btn-outline-primary'" @click="setHand(5)">5</button>
+                <button class="btn" :class="(hands_score==6)?'btn-primary':'btn-outline-primary'" @click="setHand(6)">6</button>
+                <button class="btn" :class="(hands_score==7)?'btn-primary':'btn-outline-primary'" @click="setHand(7)">7</button>
+                <button class="btn" :class="(hands_score==8)?'btn-primary':'btn-outline-primary'" @click="setHand(8)">8</button>
+                <button class="btn" :class="(hands_score==9)?'btn-primary':'btn-outline-primary'" @click="setHand(9)">9</button>
+                <button class="btn" :class="(hands_score==10)?'btn-primary':'btn-outline-primary'" @click="setHand(10)">10</button>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="align-middle text-left text-warning">Điểm mắt</td>
+            <td class="align-middle text-warning">{{eyes_score}}</td>
+            <td class="align-middle">
+              <div class="btn-group">
+                <button class="btn" :class="(eyes_score==0)?'btn-warning':'btn-outline-warning'" @click="setEye(0)">0</button>
+                <button class="btn" :class="(eyes_score==1)?'btn-warning':'btn-outline-warning'" @click="setEye(1)">1</button>
+                <button class="btn" :class="(eyes_score==2)?'btn-warning':'btn-outline-warning'" @click="setEye(2)">2</button>
+                <button class="btn" :class="(eyes_score==3)?'btn-warning':'btn-outline-warning'" @click="setEye(3)">3</button>
+                <button class="btn" :class="(eyes_score==4)?'btn-warning':'btn-outline-warning'" @click="setEye(4)">4</button>
+                <button class="btn" :class="(eyes_score==5)?'btn-warning':'btn-outline-warning'" @click="setEye(5)">5</button>
+                <button class="btn" :class="(eyes_score==6)?'btn-warning':'btn-outline-warning'" @click="setEye(6)">6</button>
+                <button class="btn" :class="(eyes_score==7)?'btn-warning':'btn-outline-warning'" @click="setEye(7)">7</button>
+                <button class="btn" :class="(eyes_score==8)?'btn-warning':'btn-outline-warning'" @click="setEye(8)">8</button>
+                <button class="btn" :class="(eyes_score==9)?'btn-warning':'btn-outline-warning'" @click="setEye(9)">9</button>
+                <button class="btn" :class="(eyes_score==10)?'btn-warning':'btn-outline-warning'" @click="setEye(10)">10</button>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="align-middle text-left text-success" style="min-width:135px">Điểm chính xác</td>
+            <td class="align-middle text-success" style="width:70px">{{accuracy_score}}</td>
+            <td class="align-middle">
+              <div class="progress" style="height:38px">
+                <div class="progress-bar bg-success" role="progressbar" :style="'width:'+ accuracy_score*10 +'%'" aria-valuenow="7" aria-valuemin="0" aria-valuemax="10"></div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="align-middle text-left text-info">Điểm tốc độ</td>
+            <td class="align-middle text-info">{{speed_score}}</td>
+            <td class="align-middle">
+              <div class="progress" style="height:38px">
+                <div class="progress-bar bg-info" role="progressbar" :style="'width:'+ speed_score*10 +'%'" aria-valuenow="7" aria-valuemin="0" aria-valuemax="10"></div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td class="align-middle text-left text-danger" style="height:63px">Điểm lỗi sai</td>
+            <td class="align-middle text-danger">{{wrong_score}}</td>
+            <td rowspan="2" class="position-relative" style="font-size:55px;font-weight:600">
+              <div>
+                <div class="position-absolute w-100" style="padding:90px 0;left:0;top:50%;transform: translate(0, -50%)">
+                  {{total_score}}
+                </div>
+                <canvas id="myChart" style="width:100%;max-width:600px;"></canvas>          
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2" class="text-right border-0 align-middle">
+              <h4 class="mb-0">TỔNG ĐIỂM</h4>
+              <strong>Σ</strong>=(<span class="text-primary">&#x25A0;</span>+<span class="text-warning">&#x25A0;</span>+<span class="text-success">&#x25A0;</span>+<span class="text-info">&#x25A0;</span>)/4-<span class="text-danger">&#x25A0;</span>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="3">
+              <small>
+                Giảng viên đánh giá <span class="text-primary">Điểm tay</span> và <span class="text-warning">Điểm mắt</span> bằng cách chọn trên thang điểm bên trên.
+              </small>
+            </td>
+          </tr>
+        </table>
+      </main>
+
+      <footer class="mastfoot mt-auto">
+        <div class="inner">
+          <p class="mb-0">Làm bởi <a href="https://www.cuongpham.vn/">thầy Cường</a> với tất cả ❤<br>
+            <small>10 ngón tay nhanh, phát triển từ dự án của Dajanto</small> - <small>Mẫu Cover cho <a href="https://getbootstrap.com/">Bootstrap</a>, của <a href="https://twitter.com/mdo">@mdo</a>.</small></p>
+        </div>
+      </footer>
+</div>
+<script src="assets/js/jsTypingChallenge.sv.js"></script>
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/vue.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+
+<script>
+  var vm = new Vue({
+      el: '#app',
+      data() {
+          return {
+            eyes_score: 10,
+            hands_score: 10,
+            accuracy_score: 0,
+            speed_score: 0,
+            wrong_score: 0,
+            total_score: 0,
+          }
+      },
+      mounted() {
+        var query = location.search.slice(1).split('&');
+        var tmp = Math.max(0, Math.min(100, query[0].split('=')[1]));
+        this.accuracy_score = tmp/10;
+        tmp = Math.max(0, query[1].split('=')[1]);
+        this.speed_score = (tmp>=30)?10:(Math.round(tmp/30*10));
+        tmp = Math.max(0, query[2].split('=')[1]);
+        this.wrong_score = tmp/10;
+        this.mark();
+      },
+      methods: {
+        mark(){
+          this.total_score = (Math.round(Math.round((this.accuracy_score + this.speed_score + this.eyes_score + this.hands_score))/4*10)/10 - this.wrong_score).toFixed(1);
+          var xValues = ["Điểm tay", "Điểm mắt", "Điểm chính xác", "Điểm tốc độ", "Điểm lỗi sai", "Còn lại"];
+          var yValues = [];
+          yValues = yValues.concat(this.eyes_score, this.hands_score, this.accuracy_score, this.speed_score, this.wrong_score, 10-this.total_score);
+          var barColors = [
+            "#007bff",
+            "#ffc107",
+            "#28a745",
+            "#17a2b8",
+            "#dc3545",
+            "#ffffff"
+          ];
+          
+          new Chart("myChart", {
+            type: "doughnut",
+            data: {
+              labels: xValues,
+              datasets: [{
+                backgroundColor: barColors,
+                data: yValues
+              }]
+            },
+            options: {
+              legend: {
+                display: false,
+              },
+            }
+          });
+        },
+        setEye(point){
+          this.eyes_score = point;
+          this.mark();
+        },
+        setHand(point){
+          this.hands_score = point;
+          this.mark();
+        },
+      },
+  });
+</script>
+</body>
+</html>
